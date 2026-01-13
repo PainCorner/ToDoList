@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +8,33 @@
     <link rel="stylesheet" href="style.css">
     <script type="module" src="javascript/controller.js" defer></script>
 </head>
+
 <body>
     <header>
         <h1>タスクボード</h1>
     </header>
+    <main>
+        <button type="button">＋タスク追加</button>
+        <div class="task-board">
+            <section class="card card--todo">
+                <header class="card__header">
+                    <h2 class="card__title">開始前</h2>
+                </header>
+                <div class="card__content">
+                    <ul class="card__list">
+                        <li class="card__item">
+                            <label class="card__label">
+                                <input class="card__checkbox" type="checkbox">
+                                <span class="card__text">aaaaa</span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <div class="task-board__item">進行中</div>
+            <div class="task-board__item">完了</div>
+        </div>
+    </main>
 </body>
+
 </html>
