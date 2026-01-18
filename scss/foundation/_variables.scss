@@ -3,8 +3,21 @@
 /* 
     Variables should follow the `$component-state-property-size` formula for
     consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
- */
+*/
 // Color System（色の体系）
+
+// メインエリア
+$main-primary-bg:#808080;
+
+// ヘッダーエリア
+$header-bg:#212529;
+$header-color:#fff;
+
+// タスクカード
+$task-color-before: #e3f2fd;
+$task-color-progress: #e8f5e9;
+$task-color-done: #fce4ec;
+$text-color: #333;
 
 // Options（全体設定）
 
