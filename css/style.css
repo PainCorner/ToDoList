@@ -203,4 +203,14 @@ Add the correct display in Chrome and Safari.
 */
 summary {
   display: list-item;
+}
+
+/* 
+    Variables should follow the `$component-state-property-size` formula for
+    consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
+*/
+.main-header {
+  background-color: #151515;
+  color: #EEE;
+  height: 20vh;
 }/*# sourceMappingURL=style.css.map */
