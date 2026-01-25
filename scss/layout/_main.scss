@@ -1,0 +1,6 @@
+@use "../foundation/variables";
+
+.main-body {
+    background-color: aqua;
+    min-height: variables.$main-body-height;
+}

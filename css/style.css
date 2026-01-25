@@ -213,4 +213,9 @@ summary {
   background-color: #151515;
   color: #EEE;
   height: 20vh;
+}
+
+.main-body {
+  background-color: aqua;
+  min-height: 80vh;
 }/*# sourceMappingURL=style.css.map */
