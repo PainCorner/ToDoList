@@ -1,6 +1,13 @@
 @use "../foundation/variables";
 
 .main-body {
-    background-color: aqua;
     min-height: variables.$main-body-height;
+}
+
+.task-actions {
+    height: variables.$task-actions-height;
+}
+
+.task-board {
+    height: variables.$task-board-height;
 }

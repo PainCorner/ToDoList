@@ -32,7 +32,9 @@ html {
   /* 2 */
   -webkit-text-size-adjust: 100%;
   /* 3 */
-  tab-size: 4;
+  -moz-tab-size: 4;
+    -o-tab-size: 4;
+       tab-size: 4;
   /* 4 */
 }
 
@@ -140,7 +142,9 @@ button,
 [type=button],
 [type=reset],
 [type=submit] {
-  appearance: button;
+  -webkit-appearance: button;
+     -moz-appearance: button;
+          appearance: button;
 }
 
 /**
@@ -170,7 +174,9 @@ Correct the cursor style of increment and decrement buttons in Safari.
 2. Correct the outline style in Safari.
 */
 [type=search] {
-  appearance: textfield;
+  -webkit-appearance: textfield;
+     -moz-appearance: textfield;
+          appearance: textfield;
   /* 1 */
   outline-offset: -2px;
   /* 2 */
@@ -216,6 +222,13 @@ summary {
 }
 
 .main-body {
-  background-color: aqua;
   min-height: 80vh;
+}
+
+.task-actions {
+  height: 20vh;
+}
+
+.task-board {
+  height: 60vh;
 }/*# sourceMappingURL=style.css.map */
