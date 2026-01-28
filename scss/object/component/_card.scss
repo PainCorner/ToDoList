@@ -2,7 +2,6 @@
 @use "../../foundation/mixins";
 
 .card {
-    background-color: variables.$card-bg;
     border-radius: variables.$border-radius-lg;
     width: variables.$card-width;
 
@@ -27,9 +26,9 @@
     &__item {
         border-radius: variables.$border-radius;
         margin-inline: auto;
-        width: variables.$card-item-width;
         padding: variables.$card-item-padding;
         margin: variables.$card-item-margin;
         list-style: none;
+        background-color: variables.$card-item-bg;
     }
 }

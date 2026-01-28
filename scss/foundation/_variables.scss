@@ -18,15 +18,13 @@
 $header-bg: #151515;
 $header-color: #EEE;
 
-// タスクボード
-$task-board-bg: inherit; // 実験用の背景色設定、後で消す
+/* カード（個別） */
+$card-todo-bg: #c3e3fa;
+$card-doing-bg: #94f194;
+$card-done-bg: #ffc0cb;
 
-// タスクカード
-$card-bg: inherit; // 個別のカードに設定するため、共通化せず後で消す
-
-$card-todo-bg: #e3f2fd;
-$card-doing-bg:#94f194;
-$card-done-bg:pink;
+/* カード（共通） */
+$card-item-bg: lighten($card-todo-bg, 15%);
 
 // ============================================================
 // Options（全体設定）
@@ -37,7 +35,7 @@ $card-done-bg:pink;
 // ============================================================
 /* margin */
 $task-actions-margin-bottom: 3vh;
-$card-item-margin:0.5rem;
+$card-item-margin: 0.5rem;
 
 /* padding */
 $card-title-padding: 0.5rem;
@@ -49,7 +47,6 @@ $card-item-padding: 0.5rem;
 
 /* 幅 */
 $card-width: 25vw;
-$card-item-width: 80%;
 // ============================================================
 // Typography（タイポグラフィ）
 // ============================================================
