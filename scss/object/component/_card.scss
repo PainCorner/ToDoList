@@ -1,0 +1,12 @@
+@use "../../foundation/variables";
+
+
+.card {
+    width: variables.$card-width;
+    background-color: cadetblue;
+    height: variables.$card-height;
+
+    &__item {
+        list-style: none;
+    }
+}

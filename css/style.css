@@ -215,6 +215,8 @@ summary {
     Variables should follow the `$component-state-property-size` formula for
     consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
 */
+/* 前景色（文字色） */
+/* 背景色 */
 .main-header {
   background-color: #151515;
   color: #EEE;
@@ -234,4 +236,14 @@ summary {
   background-color: aquamarine;
   display: flex;
   justify-content: space-evenly;
+}
+
+.card {
+  width: 25vw;
+  background-color: cadetblue;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.card__item {
+  list-style: none;
 }/*# sourceMappingURL=style.css.map */
