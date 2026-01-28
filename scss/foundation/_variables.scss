@@ -4,6 +4,8 @@
     Variables should follow the `$component-state-property-size` formula for
     consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
 */
+// 変数は、HTMLの要素順にしている。
+
 // ============================================================
 // Color System（色の体系）
 // ============================================================
@@ -20,11 +22,11 @@ $header-color: #EEE;
 $task-board-bg: inherit; // 実験用の背景色設定、後で消す
 
 // タスクカード
-$card-bg: #1dbbe6; // 個別のカードに設定するため、共通化せず後で消す
-$task-color-before: #e3f2fd;
-$task-color-progress: #e8f5e9;
-$task-color-done: #fce4ec;
-$text-color: #333;
+$card-bg: inherit; // 個別のカードに設定するため、共通化せず後で消す
+
+$card-todo-bg: #e3f2fd;
+$card-doing-bg:#94f194;
+$card-done-bg:pink;
 
 // ============================================================
 // Options（全体設定）
@@ -33,14 +35,21 @@ $text-color: #333;
 // ============================================================
 // Spacing（余白）
 // ============================================================
+/* margin */
 $task-actions-margin-bottom: 3vh;
+$card-item-margin:0.5rem;
+
+/* padding */
+$card-title-padding: 0.5rem;
+$card-item-padding: 0.5rem;
 
 // ============================================================
 // Body（基本スタイル）
 // ============================================================
 
-// 幅
+/* 幅 */
 $card-width: 25vw;
+$card-item-width: 80%;
 // ============================================================
 // Typography（タイポグラフィ）
 // ============================================================

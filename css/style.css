@@ -217,6 +217,9 @@ summary {
 */
 /* 前景色（文字色） */
 /* 背景色 */
+/* margin */
+/* padding */
+/* 幅 */
 .main-header {
   background-color: #151515;
   color: #EEE;
@@ -233,12 +236,30 @@ summary {
 }
 
 .card {
-  background-color: #1dbbe6;
+  background-color: inherit;
   border-radius: 0.5rem;
   width: 25vw;
 }
+.card--todo {
+  background-color: #e3f2fd;
+}
+.card--doing {
+  background-color: #94f194;
+}
+.card--done {
+  background-color: pink;
+}
+.card__title {
+  border-top-right-radius: 0.5rem;
+  border-top-left-radius: 0.5rem;
+  text-align: center;
+  padding: 0.5rem;
+}
 .card__item {
+  border-radius: 0.25rem;
   margin-inline: auto;
   width: 80%;
+  padding: 0.5rem;
+  margin: 0.5rem;
   list-style: none;
 }/*# sourceMappingURL=style.css.map */

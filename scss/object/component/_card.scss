@@ -1,14 +1,35 @@
 @use "../../foundation/variables";
-
+@use "../../foundation/mixins";
 
 .card {
     background-color: variables.$card-bg;
     border-radius: variables.$border-radius-lg;
     width: variables.$card-width;
 
+    &--todo {
+        background-color: variables.$card-todo-bg;
+    }
+
+    &--doing {
+        background-color: variables.$card-doing-bg;
+    }
+
+    &--done {
+        background-color: variables.$card-done-bg;
+    }
+
+    &__title {
+        @include mixins.border-top-radius(variables.$border-radius-lg);
+        text-align: center;
+        padding: variables.$card-title-padding;
+    }
+
     &__item {
+        border-radius: variables.$border-radius;
         margin-inline: auto;
-        width: 80%;
+        width: variables.$card-item-width;
+        padding: variables.$card-item-padding;
+        margin: variables.$card-item-margin;
         list-style: none;
     }
 }
