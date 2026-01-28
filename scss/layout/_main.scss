@@ -9,8 +9,7 @@
 }
 
 .task-board {
-    height: variables.$task-board-height;
-    background-color: aquamarine;
+    background-color: variables.$task-board-bg;
     display: flex;
     justify-content: space-evenly;
 }

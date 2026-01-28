@@ -228,22 +228,21 @@ summary {
 }
 
 .task-actions {
-  height: 20vh;
+  height: 10vh;
 }
 
 .task-board {
-  height: 60vh;
-  background-color: aquamarine;
+  background-color: #800080;
   display: flex;
   justify-content: space-evenly;
 }
 
 .card {
   width: 25vw;
-  background-color: cadetblue;
-  height: -moz-fit-content;
-  height: fit-content;
+  background-color: #1dbbe6;
 }
 .card__item {
+  margin-inline: auto;
+  width: 80%;
   list-style: none;
 }/*# sourceMappingURL=style.css.map */
