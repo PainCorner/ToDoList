@@ -10,4 +10,7 @@
 
 .task-board {
     height: variables.$task-board-height;
+    background-color: aquamarine;
+    display: flex;
+    justify-content: space-evenly;
 }

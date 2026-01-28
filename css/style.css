@@ -231,4 +231,7 @@ summary {
 
 .task-board {
   height: 60vh;
+  background-color: aquamarine;
+  display: flex;
+  justify-content: space-evenly;
 }/*# sourceMappingURL=style.css.map */
