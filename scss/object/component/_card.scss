@@ -2,8 +2,9 @@
 
 
 .card {
-    width: variables.$card-width;
     background-color: variables.$card-bg;
+    border-radius: variables.$border-radius-lg;
+    width: variables.$card-width;
 
     &__item {
         margin-inline: auto;

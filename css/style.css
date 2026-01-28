@@ -220,26 +220,22 @@ summary {
 .main-header {
   background-color: #151515;
   color: #EEE;
-  height: 20vh;
-}
-
-.main-body {
-  min-height: 80vh;
 }
 
 .task-actions {
-  height: 10vh;
+  margin-bottom: 3vh;
 }
 
 .task-board {
-  background-color: #800080;
+  background-color: inherit;
   display: flex;
   justify-content: space-evenly;
 }
 
 .card {
-  width: 25vw;
   background-color: #1dbbe6;
+  border-radius: 0.5rem;
+  width: 25vw;
 }
 .card__item {
   margin-inline: auto;

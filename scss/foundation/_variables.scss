@@ -17,10 +17,10 @@ $header-bg: #151515;
 $header-color: #EEE;
 
 // タスクボード
-$task-board-bg: #800080;
+$task-board-bg: inherit; // 実験用の背景色設定、後で消す
 
 // タスクカード
-$card-bg:#1dbbe6;   // 個別のカードに設定するため、共通化せず後で消す
+$card-bg: #1dbbe6; // 個別のカードに設定するため、共通化せず後で消す
 $task-color-before: #e3f2fd;
 $task-color-progress: #e8f5e9;
 $task-color-done: #fce4ec;
@@ -33,16 +33,11 @@ $text-color: #333;
 // ============================================================
 // Spacing（余白）
 // ============================================================
+$task-actions-margin-bottom: 3vh;
 
 // ============================================================
 // Body（基本スタイル）
 // ============================================================
-
-// 高さ
-$header-height: 20vh;
-$main-body-height: 80vh;
-$task-actions-height: 10vh;
-$task-board-height: auto;
 
 // 幅
 $card-width: 25vw;
@@ -65,6 +60,9 @@ $card-width: 25vw;
 // ============================================================
 // Borders（枠線）
 // ============================================================
+$border-radius: 0.25rem;
+$border-radius-sm: 0.125rem;
+$border-radius-lg: 0.5rem;
 
 // ============================================================
 // Transitions（アニメーション）

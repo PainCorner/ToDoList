@@ -1,11 +1,7 @@
 @use "../foundation/variables";
 
-.main-body {
-    min-height: variables.$main-body-height;
-}
-
 .task-actions {
-    height: variables.$task-actions-height;
+    margin-bottom: variables.$task-actions-margin-bottom;
 }
 
 .task-board {
