@@ -13,10 +13,12 @@
 
 /* 背景色 */
 // メインエリア
+$body-bg: #fafafa;
 
 // ヘッダーエリア
 $header-bg: #151515;
 $header-color: #EEE;
+$settings-btn-hover-color: lighten($header-bg, 40%);
 
 /* カード（個別） */
 $card-todo-bg: #c3e3fa;
@@ -24,8 +26,8 @@ $card-doing-bg: #94f194;
 $card-done-bg: #ffc0cb;
 
 /* カード（共通） */
-$card-item-bg: lighten($card-todo-bg, 15%);
-$card-item-border-color:#9b9b9b;
+$card-item-bg: #fefefe;
+$card-item-border-color: #9b9b9b;
 
 
 // ============================================================
@@ -40,7 +42,8 @@ $card-item-border-color:#9b9b9b;
 $main-header-heading-padding: 1.5rem;
 $card-title-padding: 0.5rem;
 $card-item-padding: 0.5rem;
-$del-btn-padding:0.2rem;
+$del-btn-padding: 0.2rem;
+
 /* margin */
 $task-actions-margin-bottom: 3vh;
 $card-item-margin: 0.5rem;
@@ -58,6 +61,8 @@ $card-width: 25vw;
 /* 位置 */
 $del-btn-top: $card-item-padding;
 $del-btn-right: $card-item-padding;
+$main-header-btn-margin-right: $main-header-heading-padding;
+$main-header-btn-padding: 0.5rem;
 // ============================================================
 // Typography（タイポグラフィ）
 // ============================================================
@@ -81,14 +86,15 @@ $checkbox-size: 1rem;
 // ============================================================
 // Borders（枠線）
 // ============================================================
-$border-size:0.125rem;
+$border-size: 0.125rem;
 
 $border-radius: 0.25rem;
 $border-radius-sm: 0.125rem;
 $border-radius-lg: 0.5rem;
 
+/* 円形 */
+$border-circle: 50%;
+
 // ============================================================
 // Transitions（アニメーション）
 // ============================================================
-$transition-base: .3s ease-out;
-$transition-del-btn: .3s ease-in;

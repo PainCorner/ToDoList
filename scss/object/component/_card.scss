@@ -35,15 +35,14 @@
         background-color: variables.$card-item-bg;
         position: relative;
         border: solid variables.$border-size variables.$card-item-bg;
+        user-select: none;
 
         &:hover {
-            transition: variables.$transition-base;
             border: solid variables.$border-size variables.$card-item-border-color;
 
             .card__del-btn {
                 visibility: visible;
                 opacity: 1;
-                transition: variables.$transition-del-btn;
             }
         }
     }
@@ -68,5 +67,10 @@
         background-color: inherit;
         top: variables.$del-btn-top;
         right: variables.$del-btn-right;
+        border-radius: variables.$border-radius;
+
+        &:hover {
+            background-color: darken(variables.$card-item-bg, 10%);
+        }
     }
 }

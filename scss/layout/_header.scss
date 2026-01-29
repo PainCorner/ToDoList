@@ -3,7 +3,9 @@
 .main-header {
     background-color: variables.$header-bg;
     color: variables.$header-color;
-    display: block;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: variables.$main-header-width;
     position: sticky;
     top: 0;
@@ -11,5 +13,21 @@
 
     &__heading {
         padding: variables.$main-header-heading-padding;
+        cursor: default;
+    }
+
+    &__settings-btn {
+        border: none;
+        height: fit-content;
+        margin-right: variables.$main-header-btn-margin-right;
+        padding: variables.$main-header-btn-padding;
+        background-color: variables.$header-bg;
+        color: variables.$header-color;
+        border-radius: variables.$border-circle;
+        cursor: pointer;
+
+        &:hover {
+            background-color: variables.$settings-btn-hover-color;
+        }
     }
 }
