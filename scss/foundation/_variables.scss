@@ -25,6 +25,8 @@ $card-done-bg: #ffc0cb;
 
 /* カード（共通） */
 $card-item-bg: lighten($card-todo-bg, 15%);
+$card-item-border-color:#9b9b9b;
+
 
 // ============================================================
 // Options（全体設定）
@@ -33,18 +35,21 @@ $card-item-bg: lighten($card-todo-bg, 15%);
 // ============================================================
 // Spacing（余白）
 // ============================================================
-/* margin */
-$task-actions-margin-bottom: 3vh;
-$card-item-margin: 0.5rem;
 
 /* padding */
 $main-header-heading-padding: 1.5rem;
 $card-title-padding: 0.5rem;
 $card-item-padding: 0.5rem;
+$del-btn-padding:0.2rem;
+/* margin */
+$task-actions-margin-bottom: 3vh;
+$card-item-margin: 0.5rem;
+$card-checkbox-margin-right: $card-item-padding;
 
 // ============================================================
 // Body（基本スタイル）
 // ============================================================
+/* 高さ */
 
 /* 幅 */
 $main-header-width: 100%;
@@ -63,6 +68,7 @@ $font-family-base: $font-family-sans-serif;
 // ============================================================
 // Components（共通パーツの部品）
 // ============================================================
+$checkbox-size: 1rem;
 
 // ============================================================
 // Grid & Breakpoints（レイアウトとレスポンシブ）
@@ -75,6 +81,8 @@ $font-family-base: $font-family-sans-serif;
 // ============================================================
 // Borders（枠線）
 // ============================================================
+$border-size:0.125rem;
+
 $border-radius: 0.25rem;
 $border-radius-sm: 0.125rem;
 $border-radius-lg: 0.5rem;
@@ -82,3 +90,5 @@ $border-radius-lg: 0.5rem;
 // ============================================================
 // Transitions（アニメーション）
 // ============================================================
+$transition-base: .3s ease-out;
+$transition-del-btn: .3s ease-in;

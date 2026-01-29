@@ -7,14 +7,17 @@
 
     &--todo {
         background-color: variables.$card-todo-bg;
+        height: fit-content;
     }
 
     &--doing {
         background-color: variables.$card-doing-bg;
+        height: fit-content;
     }
 
     &--done {
         background-color: variables.$card-done-bg;
+        height: fit-content;
     }
 
     &__title {
@@ -31,10 +34,38 @@
         list-style: none;
         background-color: variables.$card-item-bg;
         position: relative;
+        border: solid variables.$border-size variables.$card-item-bg;
+
+        &:hover {
+            transition: variables.$transition-base;
+            border: solid variables.$border-size variables.$card-item-border-color;
+
+            .card__del-btn {
+                visibility: visible;
+                opacity: 1;
+                transition: variables.$transition-del-btn;
+            }
+        }
     }
 
-    &__del-btn{
+    &__label {
+        display: flex;
+        align-items: flex-start;
+    }
+
+    &__checkbox[type="checkbox"] {
+        margin-right: variables.$card-checkbox-margin-right;
+        vertical-align: middle;
+        block-size: variables.$checkbox-size;
+        inline-size: variables.$checkbox-size;
+    }
+
+    &__del-btn {
         position: absolute;
+        visibility: hidden;
+        opacity: 0;
+        border: none;
+        background-color: inherit;
         top: variables.$del-btn-top;
         right: variables.$del-btn-right;
     }
