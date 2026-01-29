@@ -50,8 +50,9 @@ $card-width: 25vw;
 // ============================================================
 // Typography（タイポグラフィ）
 // ============================================================
-// フォントシステム
-$font-family-base: "Noto Sans JP", sans-serif;
+/* フォントシステム */
+$font-family-sans-serif: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+$font-family-base:       $font-family-sans-serif;
 
 // ============================================================
 // Components（共通パーツの部品）
