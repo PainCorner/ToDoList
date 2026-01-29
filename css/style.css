@@ -222,6 +222,7 @@ summary {
 /* margin */
 /* padding */
 /* 幅 */
+/* 位置 */
 /* フォントシステム */
 body {
   font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
@@ -276,4 +277,10 @@ body {
   margin: 0.5rem;
   list-style: none;
   background-color: white;
+  position: relative;
+}
+.card__del-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
 }/*# sourceMappingURL=style.css.map */

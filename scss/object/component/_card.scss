@@ -30,5 +30,12 @@
         margin: variables.$card-item-margin;
         list-style: none;
         background-color: variables.$card-item-bg;
+        position: relative;
+    }
+
+    &__del-btn{
+        position: absolute;
+        top: variables.$del-btn-top;
+        right: variables.$del-btn-right;
     }
 }
