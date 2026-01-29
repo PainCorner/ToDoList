@@ -3,4 +3,13 @@
 .main-header {
     background-color: variables.$header-bg;
     color: variables.$header-color;
+    display: block;
+    width: variables.$main-header-width;
+    position: sticky;
+    top: 0;
+
+
+    &__heading {
+        padding: variables.$main-header-heading-padding;
+    }
 }
