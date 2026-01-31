@@ -1,17 +1,15 @@
 const TodoController = {
   init: () => {
-    document.getElementById("save").addEventListener("click", () => {
-      const input = document.getElementById("todo");
-      if (input.value.trim() !== "") {
-        TodoModel.add(input.value);
-        input.value = "";
+    const addBtn = document.querySelector(
+      ".task-actions__btn--add"
+    );
+
+    addBtn.addEventListener("click", () => {
+      const text = prompt("タスクを追加");
+      if (text && text.trim() !== "") {
+        TodoModel.add(text);
         TodoController.loadTodos();
       }
-    });
-
-    document.getElementById("delete").addEventListener("click", () => {
-      TodoModel.clear();
-      TodoController.loadTodos();
     });
 
     TodoController.loadTodos();
