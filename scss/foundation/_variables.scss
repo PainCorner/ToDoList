@@ -17,26 +17,29 @@ $white: #fafafa;
 $color-text-on-light: $black;
 $color-text-on-dark: $white;
 
-/* 背景色 */
-// メインエリア
-$body-bg: $white;
-
+// 背景色
 /* ヘッダーエリア */
 $header-bg: #151515;
-$settings-btn-hover-bg: mix($white, $header-bg, 20%);
-$settings-btn-active-bg: mix($black, $header-bg, 10%);
+$setting-btn-hover-bg: mix($white, $header-bg, 20%);
+$setting-btn-active-bg: mix($black, $header-bg, 10%);
 
-// タスクアクションボタン
+/* 背景グラデーション（Body） */
+$bg-gradient-start: #eadfdf;
+$bg-gradient-end: #ece2df;
+$bg-overlay-light: rgba(255, 255, 255, 0.5);
+$bg-overlay-dark: rgba(0, 0, 0, 0.5);
+
+/* タスクアクションボタン */
 $task-actions-btn-add-bg: #2670f9;
 $task-actions-btn-add-hover-bg: mix($white, $task-actions-btn-add-bg, 20%);
 $task-actions-btn-add-active-bg: mix($black, $task-actions-btn-add-bg, 10%);
 
-// カード（個別）
+/* カード（個別） */
 $card-todo-bg: #c3e3fa;
 $card-doing-bg: #94f194;
 $card-done-bg: #ffc0cb;
 
-// カード（共通）
+/* カード（共通） */
 $card-item-bg: #fefefe;
 $card-item-border-color: mix($black, $card-item-bg, 40%);
 
@@ -44,6 +47,21 @@ $card-checkbox-accent-color: #2670f9;
 
 $del-btn-hover-bg: mix($black, $card-item-bg, 10%);
 $del-btn-active-bg: mix($black, $card-item-bg, 20%);
+
+// ============================================================
+// Shadows（影）
+// ============================================================
+/* 共通 */
+// カード用の軽い影
+$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05),
+  0 4px 6px -2px rgba(0, 0, 0, 0.02);
+$shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1),
+  0 1px 2px rgba(0, 0, 0, 0.06);
+// カラム用の広がる影
+
+/* 個別 */
+$card-box-shadow: $shadow-lg;
+$card-item-box-shadow: $shadow-sm;
 
 // ============================================================
 // Options（全体設定）
@@ -57,13 +75,13 @@ $del-btn-active-bg: mix($black, $card-item-bg, 20%);
 $spacing-xxs: 0.1rem;
 $spacing-xs: 0.2rem;
 $spacing-sm: 0.5rem;
-$spacing-sl: 0.8rem;
+$spacing-ms: 0.8rem;
 $spacing-md: 1rem;
 $spacing-lg: 1.5rem;
-$spacing-xl: 3vh;
+$spacing-xl: 2rem;
 
 /* padding */
-$main-header-heading-padding: $spacing-lg;
+$main-header-heading-padding: $spacing-xl;
 $task-actions-padding-y: $spacing-lg;
 $btn-add-padding: $spacing-sm;
 $card-title-padding: $spacing-sm;
@@ -71,10 +89,12 @@ $card-item-padding: $spacing-sm;
 $del-btn-padding: $spacing-xs;
 
 /* margin */
-$task-actions-margin-bottom: $spacing-xl;
+$main-header-setting-btn-margin-right: $spacing-xl;
+$task-actions-margin-bottom: $spacing-lg;
 $btn-add-margin-left: $spacing-lg;
-$card-item-margin: $spacing-sl;
+$card-item-margin: $spacing-ms;
 $card-checkbox-margin-right: $spacing-sm;
+$card-checkbox-margin-top: $spacing-xs;
 
 // ============================================================
 // Body（基本スタイル）
@@ -83,8 +103,8 @@ $card-checkbox-margin-right: $spacing-sm;
 $card-checkbox-size: 1rem;
 
 // 30pxはsvgの大きさで、ボタンをフィットさせるために設定
-$settings-btn-size: 3rem;
-$settings-btn-icon-size: 60%;
+$setting-btn-size: 4rem;
+$setting-btn-icon-size: 60%;
 
 /* 幅 */
 $main-header-width: 100%;
@@ -99,10 +119,10 @@ $main-header-btn-padding: 0.5rem;
 // Typography（タイポグラフィ）
 // ============================================================
 /* フォントシステム */
-$font-family-sans-serif:
-  "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo,
+$font-family-sans-serif: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo,
   sans-serif;
 $font-family-base: $font-family-sans-serif;
+$font-size-base: 1.2rem;
 
 // ============================================================
 // Components（共通パーツの部品）
@@ -116,6 +136,8 @@ $checkbox-size: 1rem;
 // ============================================================
 // Z-index（重なり順）
 // ============================================================
+$z-index-header: 100;
+$z-index-modal: 1000;
 
 // ============================================================
 // Borders（枠線）

@@ -5,6 +5,7 @@
   border-radius: variables.$border-radius-lg;
   width: variables.$card-width;
   height: fit-content;
+  box-shadow: variables.$card-box-shadow;
 
   $statuses: (
     "todo": variables.$card-todo-bg,
@@ -22,7 +23,7 @@
   &__title {
     @include mixins.border-top-radius(variables.$border-radius-lg);
     text-align: center;
-    padding: variables.$spacing-sm;
+    padding: variables.$card-title-padding;
   }
 
   &__item {
@@ -35,6 +36,7 @@
     position: relative;
     user-select: none;
     overflow-wrap: anywhere;
+    box-shadow: variables.$card-item-box-shadow;
 
     &:hover {
       outline: solid variables.$outline-size variables.$card-item-border-color;
@@ -53,6 +55,7 @@
 
   &__checkbox[type="checkbox"] {
     margin-right: variables.$spacing-sm;
+    margin-top: variables.$card-checkbox-margin-top;
     vertical-align: middle;
     block-size: variables.$checkbox-size;
     inline-size: variables.$checkbox-size;
@@ -73,12 +76,12 @@
     border-radius: variables.$border-radius;
 
     &:hover {
-      background-color: darken(variables.$card-item-bg, 10%);
+      background-color: variables.$del-btn-hover-bg;
       outline: solid variables.$outline-size variables.$del-btn-active-bg;
     }
 
     &:active {
-      /* 時間がある時に記述（背景色） */
+      background-color: variables.$del-btn-active-bg;
     }
   }
 }

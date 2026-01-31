@@ -10,15 +10,16 @@
   width: variables.$main-header-width;
   position: sticky;
   top: 0;
+  z-index: variables.$z-index-header;
 
   &__heading {
-    padding: variables.$spacing-lg;
+    padding: variables.$main-header-heading-padding;
     cursor: default;
   }
 
-  &__settings-btn {
+  &__setting-btn {
     height: fit-content;
-    margin-right: variables.$spacing-lg;
+    margin-right: variables.$main-header-setting-btn-margin-right;
     background-color: variables.$header-bg;
     color: variables.$color-text-on-dark;
     border-radius: variables.$border-circle;
@@ -26,20 +27,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: variables.$settings-btn-size;
+    height: variables.$setting-btn-size;
     aspect-ratio: 1;
 
     &__icon {
-      height: variables.$settings-btn-icon-size;
+      height: variables.$setting-btn-icon-size;
       aspect-ratio: 1;
     }
 
     &:hover {
-      background-color: variables.$settings-btn-hover-bg;
+      background-color: variables.$setting-btn-hover-bg;
     }
 
     &:active {
-      background-color: variables.$settings-btn-active-bg;
+      background-color: variables.$setting-btn-active-bg;
     }
   }
 }
