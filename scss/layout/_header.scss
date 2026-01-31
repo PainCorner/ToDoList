@@ -1,36 +1,35 @@
 @use "../foundation/variables";
 
 .main-header {
+  background-color: variables.$header-bg;
+  color: variables.$color-text-on-dark;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: variables.$main-header-width;
+  position: sticky;
+  top: 0;
+
+  &__heading {
+    padding: variables.$spacing-lg;
+    cursor: default;
+  }
+
+  &__settings-btn {
+    height: fit-content;
+    margin-right: variables.$spacing-lg;
+    padding: variables.$settings-btn-padding;
     background-color: variables.$header-bg;
     color: variables.$color-text-on-dark;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: variables.$main-header-width;
-    position: sticky;
-    top: 0;
+    border-radius: variables.$border-circle;
+    cursor: pointer;
 
-
-    &__heading {
-        padding: variables.$spacing-lg;
-        cursor: default;
+    &:hover {
+      background-color: variables.$settings-btn-hover-bg;
     }
 
-    &__settings-btn {
-        height: fit-content;
-        margin-right: variables.$spacing-lg;
-        padding: variables.$settings-btn-padding;
-        background-color: variables.$header-bg;
-        color: variables.$color-text-on-dark;
-        border-radius: variables.$border-circle;
-        cursor: pointer;
-
-        &:hover {
-            background-color: variables.$settings-btn-hover-bg;
-        }
-
-        &:active{
-            background-color: variables.$settings-btn-active-bg;
-        }
+    &:active {
+      background-color: variables.$settings-btn-active-bg;
     }
+  }
 }

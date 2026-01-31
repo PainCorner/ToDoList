@@ -43,7 +43,6 @@ $card-item-border-color: mix($black, $card-item-bg, 40%);
 $del-btn-hover-bg: mix($black, $card-item-bg, 10%);
 $del-btn-active-bg: mix($black, $card-item-bg, 20%);
 
-
 // ============================================================
 // Options（全体設定）
 // ============================================================
@@ -57,7 +56,7 @@ $spacing-xxs: 0.1rem;
 $spacing-xs: 0.2rem;
 $spacing-sm: 0.5rem;
 $spacing-sl: 0.8rem;
-$spacing-md: 1.0rem;
+$spacing-md: 1rem;
 $spacing-lg: 1.5rem;
 $spacing-xl: 3vh;
 
@@ -94,7 +93,9 @@ $main-header-btn-padding: 0.5rem;
 // Typography（タイポグラフィ）
 // ============================================================
 /* フォントシステム */
-$font-family-sans-serif: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+$font-family-sans-serif:
+  "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo,
+  sans-serif;
 $font-family-base: $font-family-sans-serif;
 
 // ============================================================

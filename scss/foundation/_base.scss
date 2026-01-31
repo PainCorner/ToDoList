@@ -1,9 +1,9 @@
 @use "./variables";
 
 body {
-    font-family: variables.$font-family-base;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    background-color: variables.$body-bg;
-    color: variables.$color-text-on-light;
+  font-family: variables.$font-family-base;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: variables.$body-bg;
+  color: variables.$color-text-on-light;
 }

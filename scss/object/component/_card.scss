@@ -2,81 +2,80 @@
 @use "../../foundation/mixins";
 
 .card {
-    border-radius: variables.$border-radius-lg;
-    width: variables.$card-width;
+  border-radius: variables.$border-radius-lg;
+  width: variables.$card-width;
+  height: fit-content;
 
-    &--todo {
-        background-color: variables.$card-todo-bg;
-        height: fit-content;
+  $statuses: (
+    "todo": variables.$card-todo-bg,
+    "doing": variables.$card-doing-bg,
+    "done": variables.$card-done-bg,
+  );
+
+  @each $name, $color in $statuses {
+    &--#{$name} {
+      background-color: $color;
+    }
+  }
+
+  &__title {
+    @include mixins.border-top-radius(variables.$border-radius-lg);
+    text-align: center;
+    padding: variables.$spacing-sm;
+  }
+
+  &__item {
+    border-radius: variables.$border-radius;
+    margin-inline: auto;
+    padding: variables.$spacing-sm;
+    margin: variables.$spacing-sm;
+    list-style: none;
+    background-color: variables.$card-item-bg;
+    position: relative;
+    user-select: none;
+
+    &:hover {
+      outline: solid variables.$outline-size variables.$card-item-border-color;
+
+      .card__del-btn {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+
+  &__label {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  &__checkbox[type="checkbox"] {
+    margin-right: variables.$spacing-sm;
+    vertical-align: middle;
+    block-size: variables.$checkbox-size;
+    inline-size: variables.$checkbox-size;
+  }
+
+  &__del-btn {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    border: none;
+    background-color: inherit;
+    top: variables.$spacing-sm;
+    right: variables.$spacing-sm;
+    display: flex;
+    place-items: center;
+    padding: variables.$del-btn-padding;
+    border-radius: variables.$border-radius;
+
+    &:hover {
+      background-color: darken(variables.$card-item-bg, 10%);
+      outline: solid variables.$outline-size variables.$del-btn-active-bg;
     }
 
-    &--doing {
-        background-color: variables.$card-doing-bg;
-        height: fit-content;
+    &:active {
+      /* 時間がある時に記述（背景色） */
     }
-
-    &--done {
-        background-color: variables.$card-done-bg;
-        height: fit-content;
-    }
-
-    &__title {
-        @include mixins.border-top-radius(variables.$border-radius-lg);
-        text-align: center;
-        padding: variables.$spacing-sm;
-    }
-
-    &__item {
-        border-radius: variables.$border-radius;
-        margin-inline: auto;
-        padding: variables.$spacing-sm;
-        margin: variables.$spacing-sm;
-        list-style: none;
-        background-color: variables.$card-item-bg;
-        position: relative;
-        user-select: none;
-
-        &:hover {
-            outline: solid variables.$outline-size variables.$card-item-border-color;
-
-            .card__del-btn {
-                visibility: visible;
-                opacity: 1;
-            }
-        }
-    }
-
-    &__label {
-        display: flex;
-        align-items: flex-start;
-    }
-
-    &__checkbox[type="checkbox"] {
-        margin-right: variables.$spacing-sm;
-        vertical-align: middle;
-        block-size: variables.$checkbox-size;
-        inline-size: variables.$checkbox-size;
-    }
-
-    &__del-btn {
-        position: absolute;
-        visibility: hidden;
-        opacity: 0;
-        border: none;
-        background-color: inherit;
-        top: variables.$spacing-sm;
-        right: variables.$spacing-sm;
-        display: flex;
-        place-items: center;
-        padding: variables.$del-btn-padding;
-        border-radius: variables.$border-radius;
-
-        &:hover {
-            background-color: darken(variables.$card-item-bg, 10%);
-            outline:  solid variables.$outline-size variables.$del-btn-active-bg;
-        }
-
-        &:active {
-        }
-    }
+  }
 }

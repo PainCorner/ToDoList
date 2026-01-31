@@ -293,21 +293,17 @@ body {
 .card {
   border-radius: 0.5rem;
   width: 25vw;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 .card--todo {
   background-color: #c3e3fa;
-  height: -moz-fit-content;
-  height: fit-content;
 }
 .card--doing {
   background-color: #94f194;
-  height: -moz-fit-content;
-  height: fit-content;
 }
 .card--done {
   background-color: #ffc0cb;
-  height: -moz-fit-content;
-  height: fit-content;
 }
 .card__title {
   border-top-right-radius: 0.5rem;
@@ -360,4 +356,7 @@ body {
 .card__del-btn:hover {
   background-color: rgb(228.5, 228.5, 228.5);
   outline: solid 0.125rem rgb(213.4, 213.4, 213.4);
+}
+.card__del-btn:active {
+  /* 時間がある時に記述（背景色） */
 }/*# sourceMappingURL=style.css.map */
