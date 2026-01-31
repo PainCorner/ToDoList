@@ -133,6 +133,7 @@ textarea {
   /* 1 */
   margin: 0;
   /* 2 */
+  border: none;
 }
 
 /**
@@ -215,10 +216,11 @@ summary {
     Variables should follow the `$component-state-property-size` formula for
     consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
 */
+/* ベースカラー */
 /* 前景色（文字色） */
 /* 背景色 */
-/* カード（個別） */
-/* カード（共通） */
+/* ヘッダーエリア */
+/* 共通スペーシング */
 /* padding */
 /* margin */
 /* 高さ */
@@ -231,11 +233,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #fafafa;
+  color: #333;
 }
 
 .main-header {
   background-color: #151515;
-  color: #EEE;
+  color: #fafafa;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -248,22 +251,38 @@ body {
   cursor: default;
 }
 .main-header__settings-btn {
-  border: none;
   height: -moz-fit-content;
   height: fit-content;
   margin-right: 1.5rem;
-  padding: 0.5rem;
+  padding: 0.8rem;
   background-color: #151515;
-  color: #EEE;
+  color: #fafafa;
   border-radius: 50%;
   cursor: pointer;
 }
 .main-header__settings-btn:hover {
-  background-color: #7b7b7b;
+  background-color: rgb(66.8, 66.8, 66.8);
+}
+.main-header__settings-btn:active {
+  background-color: #181818;
 }
 
 .task-actions {
   margin-bottom: 3vh;
+  padding: 1.5rem 0;
+}
+.task-actions__btn--add {
+  margin-left: 1.5rem;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  background-color: #2670f9;
+  color: #fafafa;
+}
+.task-actions__btn--add:hover {
+  background-color: rgb(80.4, 139.6, 249.2);
+}
+.task-actions__btn--add:active {
+  background-color: rgb(39.3, 105.9, 229.2);
 }
 
 .task-board {
@@ -304,13 +323,12 @@ body {
   list-style: none;
   background-color: #fefefe;
   position: relative;
-  border: solid 0.125rem #fefefe;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
 }
 .card__item:hover {
-  border: solid 0.125rem #9b9b9b;
+  outline: solid 0.125rem rgb(172.8, 172.8, 172.8);
 }
 .card__item:hover .card__del-btn {
   visibility: visible;
@@ -334,8 +352,12 @@ body {
   background-color: inherit;
   top: 0.5rem;
   right: 0.5rem;
+  display: flex;
+  place-items: center;
+  padding: 0.2rem;
   border-radius: 0.25rem;
 }
 .card__del-btn:hover {
   background-color: rgb(228.5, 228.5, 228.5);
+  outline: solid 0.125rem rgb(213.4, 213.4, 213.4);
 }/*# sourceMappingURL=style.css.map */

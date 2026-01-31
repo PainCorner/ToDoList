@@ -9,25 +9,39 @@
 // ============================================================
 // Color System（色の体系）
 // ============================================================
+/* ベースカラー */
+$black: #333;
+$white: #fafafa;
+
 /* 前景色（文字色） */
+$color-text-on-light: $black;
+$color-text-on-dark: $white;
 
 /* 背景色 */
 // メインエリア
-$body-bg: #fafafa;
+$body-bg: $white;
 
-// ヘッダーエリア
+/* ヘッダーエリア */
 $header-bg: #151515;
-$header-color: #EEE;
-$settings-btn-hover-color: lighten($header-bg, 40%);
+$settings-btn-hover-bg: mix($white, $header-bg, 20%);
+$settings-btn-active-bg: mix($black, $header-bg, 10%);
 
-/* カード（個別） */
+// タスクアクションボタン
+$task-actions-btn-add-bg: #2670f9;
+$task-actions-btn-add-hover-bg: mix($white, $task-actions-btn-add-bg, 20%);
+$task-actions-btn-add-active-bg: mix($black, $task-actions-btn-add-bg, 10%);
+
+// カード（個別）
 $card-todo-bg: #c3e3fa;
 $card-doing-bg: #94f194;
 $card-done-bg: #ffc0cb;
 
-/* カード（共通） */
+// カード（共通）
 $card-item-bg: #fefefe;
-$card-item-border-color: #9b9b9b;
+$card-item-border-color: mix($black, $card-item-bg, 40%);
+
+$del-btn-hover-bg: mix($black, $card-item-bg, 10%);
+$del-btn-active-bg: mix($black, $card-item-bg, 20%);
 
 
 // ============================================================
@@ -38,16 +52,29 @@ $card-item-border-color: #9b9b9b;
 // Spacing（余白）
 // ============================================================
 
+/* 共通スペーシング */
+$spacing-xxs: 0.1rem;
+$spacing-xs: 0.2rem;
+$spacing-sm: 0.5rem;
+$spacing-sl: 0.8rem;
+$spacing-md: 1.0rem;
+$spacing-lg: 1.5rem;
+$spacing-xl: 3vh;
+
 /* padding */
-$main-header-heading-padding: 1.5rem;
-$card-title-padding: 0.5rem;
-$card-item-padding: 0.5rem;
-$del-btn-padding: 0.2rem;
+$main-header-heading-padding: $spacing-lg;
+$settings-btn-padding: $spacing-sl;
+$task-actions-padding-y: $spacing-lg;
+$btn-add-padding: $spacing-sm;
+$card-title-padding: $spacing-sm;
+$card-item-padding: $spacing-sm;
+$del-btn-padding: $spacing-xs;
 
 /* margin */
-$task-actions-margin-bottom: 3vh;
-$card-item-margin: 0.5rem;
-$card-checkbox-margin-right: $card-item-padding;
+$task-actions-margin-bottom: $spacing-xl;
+$btn-add-margin-left: $spacing-lg;
+$card-item-margin: $spacing-sm;
+$card-checkbox-margin-right: $spacing-sm;
 
 // ============================================================
 // Body（基本スタイル）
@@ -86,7 +113,7 @@ $checkbox-size: 1rem;
 // ============================================================
 // Borders（枠線）
 // ============================================================
-$border-size: 0.125rem;
+$outline-size: 0.125rem;
 
 $border-radius: 0.25rem;
 $border-radius-sm: 0.125rem;
