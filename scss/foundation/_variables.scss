@@ -62,7 +62,6 @@ $spacing-xl: 3vh;
 
 /* padding */
 $main-header-heading-padding: $spacing-lg;
-$settings-btn-padding: $spacing-sl;
 $task-actions-padding-y: $spacing-lg;
 $btn-add-padding: $spacing-sm;
 $card-title-padding: $spacing-sm;
@@ -78,7 +77,10 @@ $card-checkbox-margin-right: $spacing-sm;
 // ============================================================
 // Body（基本スタイル）
 // ============================================================
-/* 高さ */
+/* サイズ */
+// 30pxはsvgの大きさで、ボタンをフィットさせるために設定
+$settings-btn-size: 3rem;
+$settings-btn-icon-size: 60%;
 
 /* 幅 */
 $main-header-width: 100%;

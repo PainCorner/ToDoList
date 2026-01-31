@@ -223,7 +223,7 @@ summary {
 /* 共通スペーシング */
 /* padding */
 /* margin */
-/* 高さ */
+/* サイズ */
 /* 幅 */
 /* 位置 */
 /* フォントシステム */
@@ -254,11 +254,19 @@ body {
   height: -moz-fit-content;
   height: fit-content;
   margin-right: 1.5rem;
-  padding: 0.8rem;
   background-color: #151515;
   color: #fafafa;
   border-radius: 50%;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  aspect-ratio: 1;
+}
+.main-header__settings-btn__icon {
+  height: 60%;
+  aspect-ratio: 1;
 }
 .main-header__settings-btn:hover {
   background-color: rgb(66.8, 66.8, 66.8);

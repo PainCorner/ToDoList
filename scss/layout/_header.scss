@@ -1,4 +1,5 @@
 @use "../foundation/variables";
+@use "../foundation/function";
 
 .main-header {
   background-color: variables.$header-bg;
@@ -18,11 +19,20 @@
   &__settings-btn {
     height: fit-content;
     margin-right: variables.$spacing-lg;
-    padding: variables.$settings-btn-padding;
     background-color: variables.$header-bg;
     color: variables.$color-text-on-dark;
     border-radius: variables.$border-circle;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: variables.$settings-btn-size;
+    aspect-ratio: 1;
+
+    &__icon {
+      height: variables.$settings-btn-icon-size;
+      aspect-ratio: 1;
+    }
 
     &:hover {
       background-color: variables.$settings-btn-hover-bg;
