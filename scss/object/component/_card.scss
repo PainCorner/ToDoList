@@ -12,6 +12,7 @@
     "done": variables.$card-done-bg,
   );
 
+  // カードのステータスごとにプロパティを設定する（foreachのような）
   @each $name, $color in $statuses {
     &--#{$name} {
       background-color: $color;
@@ -27,12 +28,13 @@
   &__item {
     border-radius: variables.$border-radius;
     margin-inline: auto;
-    padding: variables.$spacing-sm;
-    margin: variables.$spacing-sm;
+    padding: variables.$card-item-padding;
+    margin: variables.$card-item-margin;
     list-style: none;
     background-color: variables.$card-item-bg;
     position: relative;
     user-select: none;
+    overflow-wrap: anywhere;
 
     &:hover {
       outline: solid variables.$outline-size variables.$card-item-border-color;
@@ -54,6 +56,7 @@
     vertical-align: middle;
     block-size: variables.$checkbox-size;
     inline-size: variables.$checkbox-size;
+    accent-color: variables.$card-checkbox-accent-color;
   }
 
   &__del-btn {

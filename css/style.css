@@ -323,13 +323,14 @@ body {
   border-radius: 0.25rem;
   margin-inline: auto;
   padding: 0.5rem;
-  margin: 0.5rem;
+  margin: 0.8rem;
   list-style: none;
   background-color: #fefefe;
   position: relative;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
+  overflow-wrap: anywhere;
 }
 .card__item:hover {
   outline: solid 0.125rem rgb(172.8, 172.8, 172.8);
@@ -347,6 +348,7 @@ body {
   vertical-align: middle;
   block-size: 1rem;
   inline-size: 1rem;
+  accent-color: #2670f9;
 }
 .card__del-btn {
   position: absolute;

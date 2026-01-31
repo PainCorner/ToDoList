@@ -40,6 +40,8 @@ $card-done-bg: #ffc0cb;
 $card-item-bg: #fefefe;
 $card-item-border-color: mix($black, $card-item-bg, 40%);
 
+$card-checkbox-accent-color: #2670f9;
+
 $del-btn-hover-bg: mix($black, $card-item-bg, 10%);
 $del-btn-active-bg: mix($black, $card-item-bg, 20%);
 
@@ -71,13 +73,15 @@ $del-btn-padding: $spacing-xs;
 /* margin */
 $task-actions-margin-bottom: $spacing-xl;
 $btn-add-margin-left: $spacing-lg;
-$card-item-margin: $spacing-sm;
+$card-item-margin: $spacing-sl;
 $card-checkbox-margin-right: $spacing-sm;
 
 // ============================================================
 // Body（基本スタイル）
 // ============================================================
 /* サイズ */
+$card-checkbox-size: 1rem;
+
 // 30pxはsvgの大きさで、ボタンをフィットさせるために設定
 $settings-btn-size: 3rem;
 $settings-btn-icon-size: 60%;
