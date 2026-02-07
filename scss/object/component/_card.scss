@@ -1,0 +1,87 @@
+@use "../../foundation/variables";
+@use "../../foundation/mixins";
+
+.card {
+  border-radius: variables.$border-radius-lg;
+  width: variables.$card-width;
+  height: fit-content;
+  box-shadow: variables.$card-box-shadow;
+
+  $statuses: (
+    "todo": variables.$card-todo-bg,
+    "doing": variables.$card-doing-bg,
+    "done": variables.$card-done-bg,
+  );
+
+  // カードのステータスごとにプロパティを設定する（foreachのような）
+  @each $name, $color in $statuses {
+    &--#{$name} {
+      background-color: $color;
+    }
+  }
+
+  &__title {
+    @include mixins.border-top-radius(variables.$border-radius-lg);
+    text-align: center;
+    padding: variables.$card-title-padding;
+  }
+
+  &__item {
+    border-radius: variables.$border-radius;
+    margin-inline: auto;
+    padding: variables.$card-item-padding;
+    margin: variables.$card-item-margin;
+    list-style: none;
+    background-color: variables.$card-item-bg;
+    position: relative;
+    user-select: none;
+    overflow-wrap: anywhere;
+    box-shadow: variables.$card-item-box-shadow;
+
+    &:hover {
+      outline: solid variables.$outline-size variables.$card-item-border-color;
+
+      .card__del-btn {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+
+  &__label {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  &__checkbox[type="checkbox"] {
+    margin-right: variables.$spacing-sm;
+    margin-top: variables.$card-checkbox-margin-top;
+    vertical-align: middle;
+    block-size: variables.$checkbox-size;
+    inline-size: variables.$checkbox-size;
+    accent-color: variables.$card-checkbox-accent-color;
+  }
+
+  &__del-btn {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    border: none;
+    background-color: inherit;
+    top: variables.$spacing-sm;
+    right: variables.$spacing-sm;
+    display: flex;
+    place-items: center;
+    padding: variables.$del-btn-padding;
+    border-radius: variables.$border-radius;
+
+    &:hover {
+      background-color: variables.$del-btn-hover-bg;
+      outline: solid variables.$outline-size variables.$del-btn-active-bg;
+    }
+
+    &:active {
+      background-color: variables.$del-btn-active-bg;
+    }
+  }
+}

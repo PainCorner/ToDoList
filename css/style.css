@@ -15,6 +15,8 @@ Use a better box model (opinionated).
 ::before,
 ::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 /**
@@ -131,6 +133,7 @@ textarea {
   /* 1 */
   margin: 0;
   /* 2 */
+  border: none;
 }
 
 /**
@@ -207,4 +210,178 @@ Add the correct display in Chrome and Safari.
 */
 summary {
   display: list-item;
+}
+
+/* 
+    Variables should follow the `$component-state-property-size` formula for
+    consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
+*/
+/* ベースカラー */
+/* 前景色（文字色） */
+/* ヘッダーエリア */
+/* 背景グラデーション（Body） */
+/* タスクアクションボタン */
+/* カード（個別） */
+/* カード（共通） */
+/* 共通 */
+/* 個別 */
+/* 共通スペーシング */
+/* padding */
+/* margin */
+/* サイズ */
+/* 幅 */
+/* 位置 */
+/* フォントシステム */
+/* 円形 */
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 1.2rem;
+  color: #333;
+  /* 
+    以下.flamingoを使用（下記リンクのコードを引用）
+    リンク：https://coliss.com/articles/build-websites/operation/css/gradient-background-hue-css.html
+   */
+  background-image: radial-gradient(73% 147%, #eadfdf 59%, #ece2df 100%), radial-gradient(91% 146%, rgba(255, 255, 255, 0.5) 47%, rgba(0, 0, 0, 0.5) 100%);
+  background-blend-mode: screen;
+}
+
+.main-header {
+  background-color: #151515;
+  color: #fafafa;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.main-header__heading {
+  padding: 2rem;
+  cursor: default;
+}
+.main-header__setting-btn {
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-right: 2rem;
+  background-color: #151515;
+  color: #fafafa;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4rem;
+  aspect-ratio: 1;
+}
+.main-header__setting-btn__icon {
+  height: 60%;
+  aspect-ratio: 1;
+}
+.main-header__setting-btn:hover {
+  background-color: rgb(66.8, 66.8, 66.8);
+}
+.main-header__setting-btn:active {
+  background-color: #181818;
+}
+
+.card {
+  border-radius: 0.5rem;
+  width: 25vw;
+  height: -moz-fit-content;
+  height: fit-content;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+}
+.card--todo {
+  background-color: #c3e3fa;
+}
+.card--doing {
+  background-color: #94f194;
+}
+.card--done {
+  background-color: #ffc0cb;
+}
+.card__title {
+  border-top-right-radius: 0.5rem;
+  border-top-left-radius: 0.5rem;
+  text-align: center;
+  padding: 0.5rem;
+}
+.card__item {
+  border-radius: 0.25rem;
+  margin-inline: auto;
+  padding: 0.5rem;
+  margin: 0.8rem;
+  list-style: none;
+  background-color: #fefefe;
+  position: relative;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  overflow-wrap: anywhere;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+.card__item:hover {
+  outline: solid 0.125rem rgb(172.8, 172.8, 172.8);
+}
+.card__item:hover .card__del-btn {
+  visibility: visible;
+  opacity: 1;
+}
+.card__label {
+  display: flex;
+  align-items: flex-start;
+}
+.card__checkbox[type=checkbox] {
+  margin-right: 0.5rem;
+  margin-top: 0.2rem;
+  vertical-align: middle;
+  block-size: 1rem;
+  inline-size: 1rem;
+  accent-color: #2670f9;
+}
+.card__del-btn {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  border: none;
+  background-color: inherit;
+  top: 0.5rem;
+  right: 0.5rem;
+  display: flex;
+  place-items: center;
+  padding: 0.2rem;
+  border-radius: 0.25rem;
+}
+.card__del-btn:hover {
+  background-color: rgb(233.7, 233.7, 233.7);
+  outline: solid 0.125rem rgb(213.4, 213.4, 213.4);
+}
+.card__del-btn:active {
+  background-color: rgb(213.4, 213.4, 213.4);
+}
+
+.task-actions {
+  margin-bottom: 1.5rem;
+  padding: 1.5rem 0;
+}
+.task-actions__btn--add {
+  margin-left: 1.5rem;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  background-color: #2670f9;
+  color: #fafafa;
+}
+.task-actions__btn--add:hover {
+  background-color: rgb(80.4, 139.6, 249.2);
+}
+.task-actions__btn--add:active {
+  background-color: rgb(39.3, 105.9, 229.2);
+}
+
+.task-board {
+  display: flex;
+  justify-content: space-evenly;
 }/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,46 @@
+@use "../foundation/variables";
+@use "../foundation/function";
+
+.main-header {
+  background-color: variables.$header-bg;
+  color: variables.$color-text-on-dark;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: variables.$main-header-width;
+  position: sticky;
+  top: 0;
+  z-index: variables.$z-index-header;
+
+  &__heading {
+    padding: variables.$main-header-heading-padding;
+    cursor: default;
+  }
+
+  &__setting-btn {
+    height: fit-content;
+    margin-right: variables.$main-header-setting-btn-margin-right;
+    background-color: variables.$header-bg;
+    color: variables.$color-text-on-dark;
+    border-radius: variables.$border-circle;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: variables.$setting-btn-size;
+    aspect-ratio: 1;
+
+    &__icon {
+      height: variables.$setting-btn-icon-size;
+      aspect-ratio: 1;
+    }
+
+    &:hover {
+      background-color: variables.$setting-btn-hover-bg;
+    }
+
+    &:active {
+      background-color: variables.$setting-btn-active-bg;
+    }
+  }
+}
