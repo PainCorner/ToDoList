@@ -257,6 +257,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 100;
+  margin-bottom: 2rem;
 }
 .main-header__heading {
   padding: 2rem;

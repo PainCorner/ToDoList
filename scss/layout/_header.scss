@@ -11,6 +11,7 @@
   position: sticky;
   top: 0;
   z-index: variables.$z-index-header;
+  margin-bottom: variables.$main-header-margin-bottom;
 
   &__heading {
     padding: variables.$main-header-heading-padding;
