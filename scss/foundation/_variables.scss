@@ -12,6 +12,7 @@
 /* ベースカラー */
 $black: #333;
 $white: #fafafa;
+$primary-blue: #2670f9;
 
 /* 前景色（文字色） */
 $color-text-on-light: $black;
@@ -29,11 +30,6 @@ $bg-gradient-end: #ece2df;
 $bg-overlay-light: rgba(255, 255, 255, 0.5);
 $bg-overlay-dark: rgba(0, 0, 0, 0.5);
 
-/* タスクアクションボタン */
-$task-actions-btn-add-bg: #2670f9;
-$task-actions-btn-add-hover-bg: mix($white, $task-actions-btn-add-bg, 20%);
-$task-actions-btn-add-active-bg: mix($black, $task-actions-btn-add-bg, 10%);
-
 /* カード（個別） */
 $card-todo-bg: #c3e3fa;
 $card-doing-bg: #94f194;
@@ -43,10 +39,13 @@ $card-done-bg: #ffc0cb;
 $card-item-bg: #fefefe;
 $card-item-border-color: mix($black, $card-item-bg, 40%);
 
-$card-checkbox-accent-color: #2670f9;
+$card-checkbox-accent-color: $primary-blue;
 
 $del-btn-hover-bg: mix($black, $card-item-bg, 10%);
 $del-btn-active-bg: mix($black, $card-item-bg, 20%);
+
+/* アウトライン色 */
+$selected-outline-color: $primary-blue;
 
 // ============================================================
 // Shadows（影）
@@ -103,8 +102,6 @@ $card-checkbox-margin-top: $spacing-xs;
 // Body（基本スタイル）
 // ============================================================
 /* サイズ */
-$card-checkbox-size: 1rem;
-
 // 30pxはsvgの大きさで、ボタンをフィットさせるために設定
 $setting-btn-size: 4rem;
 $setting-btn-icon-size: 60%;
@@ -128,10 +125,6 @@ $font-family-sans-serif:
 $font-family-base: $font-family-sans-serif;
 $font-size-base: 1.2rem;
 
-// ============================================================
-// Components（共通パーツの部品）
-// ============================================================
-$checkbox-size: 1rem;
 
 // ============================================================
 // Grid & Breakpoints（レイアウトとレスポンシブ）
@@ -158,3 +151,9 @@ $border-circle: 50%;
 // ============================================================
 // Transitions（アニメーション）
 // ============================================================
+
+// ============================================================
+// Components（共通パーツの部品）
+// ============================================================
+$checkbox-size: 1rem;
+$card-item-selected-outline:$outline-size;

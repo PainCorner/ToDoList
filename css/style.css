@@ -220,9 +220,9 @@ summary {
 /* 前景色（文字色） */
 /* ヘッダーエリア */
 /* 背景グラデーション（Body） */
-/* タスクアクションボタン */
 /* カード（個別） */
 /* カード（共通） */
+/* アウトライン色 */
 /* 共通 */
 /* 個別 */
 /* 共通スペーシング */
@@ -324,6 +324,9 @@ body {
   overflow-wrap: anywhere;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
 }
+.card__item--selected {
+  outline: solid 0.125rem #2670f9;
+}
 .card__item:hover {
   outline: solid 0.125rem rgb(172.8, 172.8, 172.8);
 }
@@ -362,24 +365,6 @@ body {
 }
 .card__del-btn:active {
   background-color: rgb(213.4, 213.4, 213.4);
-}
-
-.task-actions {
-  margin-bottom: 1.5rem;
-  padding: 1.5rem 0;
-}
-.task-actions__btn--add {
-  margin-left: 1.5rem;
-  padding: 0.5rem;
-  border-radius: 0.25rem;
-  background-color: #2670f9;
-  color: #fafafa;
-}
-.task-actions__btn--add:hover {
-  background-color: rgb(80.4, 139.6, 249.2);
-}
-.task-actions__btn--add:active {
-  background-color: rgb(39.3, 105.9, 229.2);
 }
 
 .task-board {

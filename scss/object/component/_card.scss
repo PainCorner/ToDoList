@@ -38,6 +38,10 @@
     overflow-wrap: anywhere;
     box-shadow: variables.$card-item-box-shadow;
 
+    &--selected{
+      outline: solid variables.$outline-size variables.$selected-outline-color;
+    }
+
     &:hover {
       outline: solid variables.$outline-size variables.$card-item-border-color;
 
@@ -54,7 +58,7 @@
   }
 
   &__checkbox[type="checkbox"] {
-    margin-right: variables.$spacing-sm;
+    margin-right: variables.$card-checkbox-margin-right;
     margin-top: variables.$card-checkbox-margin-top;
     vertical-align: middle;
     block-size: variables.$checkbox-size;

@@ -1,26 +1,5 @@
 @use "../../foundation/variables";
 
-.task-actions {
-    margin-bottom: variables.$task-actions-margin-bottom;
-    padding: variables.$task-actions-padding-y 0;
-
-    &__btn--add {
-        margin-left: variables.$btn-add-margin-left;
-        padding: variables.$btn-add-padding;
-        border-radius: variables.$border-radius;
-        background-color: variables.$task-actions-btn-add-bg;
-        color: variables.$color-text-on-dark;
-
-        &:hover {
-            background-color: variables.$task-actions-btn-add-hover-bg;
-        }
-
-        &:active {
-            background-color: variables.$task-actions-btn-add-active-bg;
-        }
-    }
-}
-
 .task-board {
     display: flex;
     justify-content: space-evenly;
