@@ -34,6 +34,7 @@ html {
   /* 3 */
   tab-size: 4;
   /* 4 */
+  height: 100%;
 }
 
 /*
@@ -206,45 +207,44 @@ summary {
   display: list-item;
 }
 
-/* 
-    Variables should follow the `$component-state-property-size` formula for
-    consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
-*/
 /* ベースカラー */
 /* 前景色（文字色） */
+/* メイン */
 /* ヘッダーエリア */
 /* 背景グラデーション（Body） */
 /* カード（個別） */
 /* カード（共通） */
 /* カード「追加」ボタン（透過背景） */
-/* アウトライン色 */
+/* アウトライン */
 /* 共通 */
 /* 個別 */
 /* 共通スペーシング */
 /* padding */
 /* margin */
 /* サイズ */
+/* 高さ */
 /* 幅 */
 /* 位置 */
-/* フォントシステム */
 /* 円形 */
+/* 楕円形 */
 body {
-  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  font-family: "LINE Seed JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 1.2rem;
-  color: #333;
-  /* 
-    以下.flamingoを使用（下記リンクのコードを引用）
-    リンク：https://coliss.com/articles/build-websites/operation/css/gradient-background-hue-css.html
-   */
-  background-image: -webkit-radial-gradient(73% 147%, #eadfdf 59%, #ece2df 100%), -webkit-radial-gradient(91% 146%, rgba(255, 255, 255, 0.5) 47%, rgba(0, 0, 0, 0.5) 100%);
-  background-image: radial-gradient(73% 147%, #eadfdf 59%, #ece2df 100%), radial-gradient(91% 146%, rgba(255, 255, 255, 0.5) 47%, rgba(0, 0, 0, 0.5) 100%);
-  background-blend-mode: screen;
+  color: #333333;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(rgba(187, 215, 209, 0.5), rgba(245.1538461538, 247.3076923077, 246.8461538462, 0.9));
 }
 
 .main-header {
-  background-color: #07071c;
+  flex-shrink: 0;
+  background-color: #0f172a;
   color: #fafafa;
   display: flex;
   justify-content: space-between;
@@ -253,16 +253,17 @@ body {
   position: sticky;
   top: 0;
   z-index: 100;
-  margin-bottom: 2rem;
 }
 .main-header__heading {
-  padding: 2rem;
+  padding: 2rem 4rem;
   cursor: default;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
 }
 .main-header__setting-btn {
   height: fit-content;
   margin-right: 2rem;
-  background-color: #07071c;
+  background-color: #0f172a;
   color: #fafafa;
   border-radius: 50%;
   cursor: pointer;
@@ -275,61 +276,91 @@ body {
 .main-header__setting-btn__icon {
   height: 60%;
   aspect-ratio: 1;
+  /* 線の太さを指定。ここを調整してください */
+  stroke-width: 0.8px;
+  /* 線を太くしたときにはみ出さないように設定 */
+  overflow: visible;
+  /* 線の継ぎ目を丸くして自然に見せる（推奨） */
+  stroke-linejoin: round;
+  stroke-linecap: round;
 }
 .main-header__setting-btn:hover {
-  background-color: rgb(55.6, 55.6, 72.4);
+  background-color: rgb(62, 68.4, 83.6);
 }
 .main-header__setting-btn:active {
-  background-color: rgb(11.4, 11.4, 30.3);
+  background-color: rgb(18.6, 25.8, 42.9);
+}
+
+.main-body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  padding: 1.5rem;
+  justify-content: space-evenly;
+  align-items: stretch;
 }
 
 .card {
   border-radius: 0.5rem;
-  width: 25vw;
-  height: fit-content;
+  width: 25dvw;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
-  padding: 1rem;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
 }
 .card--todo {
-  background-color: #c3e3fa;
+  background-color: #67b9c2;
+  background: linear-gradient(#67b9c2, rgb(92.6, 158.2, 165.4));
 }
 .card--doing {
-  background-color: #94f194;
+  background-color: #95da95;
+  background: linear-gradient(#95da95, rgb(129.4, 184.6, 129.4));
 }
 .card--done {
-  background-color: #ffc0cb;
+  background-color: #918f8f;
+  background: linear-gradient(#918f8f, rgb(126.2, 124.6, 124.6));
+}
+.card__header {
+  flex-shrink: 0;
 }
 .card__title {
   border-top-right-radius: 0.5rem;
   border-top-left-radius: 0.5rem;
   text-align: center;
-  padding: 0.5rem;
+  padding: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
 }
 .card__add-btn {
+  flex-shrink: 0;
   width: 100%;
-  margin-top: 0.5rem;
-  margin-bottom: 1rem;
   background-color: rgba(255, 255, 255, 0.6);
-  color: #333;
-  border: dashed 2px rgba(0, 0, 0, 0.15);
+  color: rgba(51, 51, 51, 0.9);
   border-radius: 0.5rem;
   padding: 0.5rem;
   cursor: pointer;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 50px;
+}
+.card__list {
+  flex: 0;
+  padding: 0;
+  margin: 0;
 }
 .card__item {
-  border-radius: 0.25rem;
+  border-radius: 0.125rem;
   margin-inline: auto;
   padding: 0.5rem;
   margin: 1rem 0;
   list-style: none;
-  background-color: #fefefe;
+  background-color: #fafafa;
   position: relative;
   user-select: none;
   overflow-wrap: anywhere;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 .card__item:hover {
-  outline: solid 0.2rem rgb(132.2, 132.2, 132.2);
+  outline: solid 0.2rem rgb(130.6, 130.6, 130.6);
 }
 .card__item:hover .card__del-btn {
   visibility: visible;
@@ -364,14 +395,9 @@ body {
   border-radius: 0.25rem;
 }
 .card__del-btn:hover {
-  background-color: rgb(233.7, 233.7, 233.7);
-  outline: solid 0.2rem rgb(213.4, 213.4, 213.4);
+  background-color: rgb(230.1, 230.1, 230.1);
+  outline: solid 0.2rem rgb(210.2, 210.2, 210.2);
 }
 .card__del-btn:active {
-  background-color: rgb(213.4, 213.4, 213.4);
-}
-
-.task-board {
-  display: flex;
-  justify-content: space-evenly;
+  background-color: rgb(210.2, 210.2, 210.2);
 }/*# sourceMappingURL=style.css.map */

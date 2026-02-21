@@ -2,35 +2,18 @@
 
 body {
   font-family: variables.$font-family-base;
+  font-optical-sizing: variables.$font-optical-sizing;
+  font-weight: variables.$font-weight-base;
+  font-style: variables.$font-style-normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: variables.$font-size-base;
   color: variables.$color-text-on-light;
-  /* 
-    以下.flamingoを使用（下記リンクのコードを引用）
-    リンク：https://coliss.com/articles/build-websites/operation/css/gradient-background-hue-css.html
-   */
-  background-image:
-    -webkit-radial-gradient(
-      73% 147%,
-      variables.$bg-gradient-start 59%,
-      variables.$bg-gradient-end 100%
-    ),
-    -webkit-radial-gradient(
-        91% 146%,
-        variables.$bg-overlay-light 47%,
-        variables.$bg-overlay-dark 100%
-      );
-  background-image:
-    radial-gradient(
-      73% 147%,
-      variables.$bg-gradient-start 59%,
-      variables.$bg-gradient-end 100%
-    ),
-    radial-gradient(
-      91% 146%,
-      variables.$bg-overlay-light 47%,
-      variables.$bg-overlay-dark 100%
-    );
-  background-blend-mode: screen;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(
+    variables.$body-bg,
+    mix(variables.$white, variables.$body-bg, 80%)
+  );
 }

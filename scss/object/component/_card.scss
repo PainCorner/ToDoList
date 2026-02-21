@@ -4,9 +4,10 @@
 .card {
   border-radius: variables.$border-radius-lg;
   width: variables.$card-width;
-  height: fit-content;
   box-shadow: variables.$card-box-shadow;
-  padding: variables.$card-padding;
+  padding: 0 variables.$card-padding;
+  display: flex;
+  flex-direction: column;
 
   $statuses: (
     "todo": variables.$card-todo-bg,
@@ -18,33 +19,46 @@
   @each $name, $color in $statuses {
     &--#{$name} {
       background-color: $color;
+      background: linear-gradient($color, mix(variables.$black, $color, 20%));
     }
+  }
+
+  &__header {
+    flex-shrink: 0;
   }
 
   &__title {
     @include mixins.border-top-radius(variables.$border-radius-lg);
     text-align: center;
     padding: variables.$card-title-padding;
+    font-weight: variables.$font-weight-semibold;
+    letter-spacing: variables.$letter-spacing-base;
   }
 
   &__add-btn {
+    flex-shrink: 0;
     width: 100%;
-    margin-top: variables.$spacing-sm;
-    margin-bottom: variables.$spacing-md;
     background-color: variables.$card-add-btn-bg;
-    color: variables.$black;
-    border: dashed 2px variables.$card-add-btn-border-color;
+    color: variables.$add-btn-color;
     border-radius: variables.$border-radius-lg;
     padding: variables.$card-add-btn-padding;
     cursor: pointer;
+		box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+
+    border-radius: variables.$border-oval;
+  }
+
+  &__list {
+    flex: 0;
+    padding: 0;
+    margin: 0;
   }
 
   &__item {
-    border-radius: variables.$border-radius;
+    border-radius: variables.$border-radius-sm;
     margin-inline: auto;
     padding: variables.$card-item-padding;
     margin: variables.$card-item-margin-y 0;
-
     list-style: none;
     background-color: variables.$card-item-bg;
     position: relative;

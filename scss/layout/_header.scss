@@ -2,7 +2,9 @@
 @use "../foundation/function";
 
 .main-header {
+  flex-shrink: 0;
   background-color: variables.$header-bg;
+  // background:  linear-gradient(135deg, variables.$header-bg 0%, variables.$header-bg 100%);
   color: variables.$color-text-on-dark;
   display: flex;
   justify-content: space-between;
@@ -11,11 +13,13 @@
   position: sticky;
   top: 0;
   z-index: variables.$z-index-header;
-  margin-bottom: variables.$main-header-margin-bottom;
 
   &__heading {
-    padding: variables.$main-header-heading-padding;
+    padding: variables.$main-header-heading-padding-y
+      variables.$main-header-heading-padding-x;
     cursor: default;
+    font-weight: variables.$font-weight-semibold;
+    letter-spacing: variables.$letter-spacing-base;
   }
 
   &__setting-btn {
@@ -34,6 +38,15 @@
     &__icon {
       height: variables.$setting-btn-icon-size;
       aspect-ratio: 1;
+      /* 線の太さを指定。ここを調整してください */
+      stroke-width: 0.8px;
+
+      /* 線を太くしたときにはみ出さないように設定 */
+      overflow: visible;
+
+      /* 線の継ぎ目を丸くして自然に見せる（推奨） */
+      stroke-linejoin: round;
+      stroke-linecap: round;
     }
 
     &:hover {
