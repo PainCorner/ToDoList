@@ -5,9 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>タスクボード</title>
+  <!-- LINE Seed JP（Google Fonts） -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=LINE+Seed+JP&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <script type="module" src="javascript/app.js" defer></script>
 </head>
@@ -30,13 +31,26 @@
     </button>
   </header>
   <main class="main-body">
-    <div class="task-board">
+    <!-- <div class="task-board"> -->
       <section class="card card--todo">
         <header class="card__header">
           <h2 class="card__title">開始前</h2>
         </header>
+        <button class="card__add-btn" type="button">
+          <!-- 
+            Icons: Bootstrap Icons (https://icons.getbootstrap.jp/icons/plus-lg/)
+            License: MIT
+          -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2" />
+          </svg>
+          タスク追加</button>
         <ul class="card__list">
-          <li class="card__item card__item--todo card__item--selected">
+          <!-- 選択されたとき、テキスト編集をするなら、下記のクラスや属性を設定 -->
+          <!-- <li class="card__item card__item--todo card__item--selected" contenteditable="true"> -->
+          <li class="card__item card__item--todo">
             <label class="card__label">
               <input class="card__checkbox" type="checkbox">
               <span class="card__text">開始前</span>
@@ -62,6 +76,17 @@
         <header class="card__header">
           <h2 class="card__title">進行中</h2>
         </header>
+        <button class="card__add-btn" type="button">
+          <!-- 
+            Icons: Bootstrap Icons (https://icons.getbootstrap.jp/icons/plus-lg/)
+            License: MIT
+          -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2" />
+          </svg>
+          タスク追加</button>
         <ul class="card__list">
           <li class="card__item">
             <label class="card__label">
@@ -89,6 +114,18 @@
         <header class="card__header">
           <h2 class="card__title">完了</h2>
         </header>
+        <button class="card__add-btn" type="button">
+          <!-- 
+            Icons: Bootstrap Icons (https://icons.getbootstrap.jp/icons/plus-lg/)
+            License: MIT
+          -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2" />
+          </svg>
+          タスク追加
+        </button>
         <ul class="card__list">
           <li class="card__item">
             <label class="card__label">
@@ -130,7 +167,7 @@
           </li>
         </ul>
       </section>
-    </div>
+    <!-- </div> -->
   </main>
 </body>
 
