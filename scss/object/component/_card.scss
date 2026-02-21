@@ -6,6 +6,7 @@
   width: variables.$card-width;
   height: fit-content;
   box-shadow: variables.$card-box-shadow;
+  padding: variables.$card-padding;
 
   $statuses: (
     "todo": variables.$card-todo-bg,
@@ -26,11 +27,24 @@
     padding: variables.$card-title-padding;
   }
 
+  &__add-btn {
+    width: 100%;
+    margin-top: variables.$spacing-sm;
+    margin-bottom: variables.$spacing-md;
+    background-color: variables.$card-add-btn-bg;
+    color: variables.$black;
+    border: dashed 2px variables.$card-add-btn-border-color;
+    border-radius: variables.$border-radius-lg;
+    padding: variables.$card-add-btn-padding;
+    cursor: pointer;
+  }
+
   &__item {
     border-radius: variables.$border-radius;
     margin-inline: auto;
     padding: variables.$card-item-padding;
-    margin: variables.$card-item-margin;
+    margin: variables.$card-item-margin-y 0;
+
     list-style: none;
     background-color: variables.$card-item-bg;
     position: relative;
@@ -38,17 +52,17 @@
     overflow-wrap: anywhere;
     box-shadow: variables.$card-item-box-shadow;
 
-    &--selected{
-      outline: solid variables.$outline-size variables.$selected-outline-color;
-    }
-
     &:hover {
-      outline: solid variables.$outline-size variables.$card-item-border-color;
+      outline: solid variables.$outline-size variables.$hover-outline-color;
 
       .card__del-btn {
         visibility: visible;
         opacity: 1;
       }
+    }
+
+    &--selected {
+      outline: solid variables.$outline-size variables.$selected-outline-color;
     }
   }
 
