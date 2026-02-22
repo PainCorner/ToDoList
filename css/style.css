@@ -256,9 +256,13 @@ body {
 }
 .main-header__heading {
   padding: 2rem 4rem;
-  cursor: default;
   font-weight: 600;
   letter-spacing: 0.1rem;
+}
+.main-header__heading-link {
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
 }
 .main-header__setting-btn {
   height: fit-content;

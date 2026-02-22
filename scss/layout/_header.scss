@@ -16,9 +16,14 @@
   &__heading {
     padding: variables.$main-header-heading-padding-y
       variables.$main-header-heading-padding-x;
-    cursor: default;
     font-weight: variables.$font-weight-semibold;
     letter-spacing: variables.$letter-spacing-base;
+
+		&-link{
+			cursor: pointer;
+			text-decoration: none;
+			color: inherit;
+		}
   }
 
   &__setting-btn {
