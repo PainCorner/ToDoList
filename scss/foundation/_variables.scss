@@ -28,15 +28,16 @@ $bg-overlay-light: rgba(255, 255, 255, 0.5);
 $bg-overlay-dark: rgba(0, 0, 0, 0.5);
 
 /* カード（個別） */
-$card-todo-bg: #67b9c2;
-$card-doing-bg: #95da95;
-$card-done-bg: #918f8f;
+$card-todo-bg: #5e8fb7;
+$card-doing-bg: #5fbc5f;
+$card-done-bg: #605d5d;
 
 /* カード（共通） */
 $card-item-bg: $white;
 
 /* カード「追加」ボタン（透過背景） */
-$card-add-btn-bg: rgba(255, 255, 255, 0.6);
+// $card-add-btn-bg: rgba(244, 244, 255, 0.8);
+$card-add-btn-bg: rgba(225, 225, 225, 0.9);
 $card-add-btn-border-color: rgba(0, 0, 0, 0.15);
 
 $card-checkbox-accent-color: $primary-blue;
@@ -53,13 +54,14 @@ $selected-outline-color: $primary-blue;
 // ============================================================
 /* 共通 */
 $shadow-lg:
-  0 10px 15px -3px rgba(0, 0, 0, 0.05),
-  0 4px 6px -2px rgba(0, 0, 0, 0.02);
+  0 4px 20px -3px rgba(0, 0, 0, 0.04),
+  0 2px 10px -2px rgba(0, 0, 0, 0.02);
 $shadow-sm: 2px 2px 4px rgba(0, 0, 0, 0.3);
 
 /* 個別 */
-$card-box-shadow: $shadow-lg;
+$card-shadow: $shadow-lg;
 $card-item-box-shadow: $shadow-sm;
+$card-add-btn-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
 
 // ============================================================
 // Options（全体設定）
@@ -90,7 +92,7 @@ $del-btn-padding: $spacing-xs;
 
 /* margin */
 $main-header-margin-bottom: $spacing-xl;
-$main-header-setting-btn-margin-right: $spacing-xl;
+$main-header-setting-btn-margin-right: $spacing-xxl;
 $task-actions-margin-bottom: $spacing-lg;
 $btn-add-margin-left: $spacing-lg;
 $card-item-margin-y: $spacing-md;
