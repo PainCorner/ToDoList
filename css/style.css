@@ -291,20 +291,16 @@ body {
   align-items: center;
   height: 4rem;
   aspect-ratio: 1;
+  transform: rotate(0);
+  transition: transform 0.3s ease-in-out;
 }
 .main-header__setting-btn__icon {
   height: 60%;
   aspect-ratio: 1;
-  /* 線の太さを指定。ここを調整してください */
-  stroke-width: 0.8px;
-  /* 線を太くしたときにはみ出さないように設定 */
-  overflow: visible;
-  /* 線の継ぎ目を丸くして自然に見せる（推奨） */
-  stroke-linejoin: round;
-  stroke-linecap: round;
 }
 .main-header__setting-btn:hover {
   background-color: rgb(62, 68.4, 83.6);
+  transform: rotate(90deg);
 }
 .main-header__setting-btn:active {
   background-color: rgb(18.6, 25.8, 42.9);
