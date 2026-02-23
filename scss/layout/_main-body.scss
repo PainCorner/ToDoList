@@ -1,10 +1,10 @@
-@use "../foundation/variables";
+@use "../foundation/variables" as v;
 
 .main-body {
   flex: 1;
   min-height: 0;
   display: flex;
-  padding: variables.$spacing-lg;
+  padding: v.$spacing-lg;
   justify-content: space-evenly;
   align-items: stretch;
 }

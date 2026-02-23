@@ -1,25 +1,25 @@
-@use "../../foundation/variables";
+@use "../../foundation/variables" as v;
 @use "../../foundation/mixins";
 
 .card {
-  border-radius: variables.$border-radius-lg;
-  width: variables.$card-width;
-  box-shadow: variables.$card-shadow;
-  padding: 0 variables.$card-padding;
+  border-radius: v.$border-radius-lg;
+  width: v.$card-width;
+  box-shadow: v.$card-shadow;
+  padding: 0 v.$card-padding;
   display: flex;
   flex-direction: column;
 
   $statuses: (
-    "todo": variables.$card-todo-bg,
-    "doing": variables.$card-doing-bg,
-    "done": variables.$card-done-bg,
+    "todo": v.$card-todo-bg,
+    "doing": v.$card-doing-bg,
+    "done": v.$card-done-bg,
   );
 
   // カードのステータスごとにプロパティを設定する（foreachのような）
   @each $name, $color in $statuses {
     &--#{$name} {
       background-color: $color;
-      background: linear-gradient($color, mix(variables.$black, $color, 20%));
+      background: linear-gradient($color, mix(v.$black, $color, 20%));
     }
   }
 
@@ -28,38 +28,38 @@
   }
 
   &__title {
-    border-radius: variables.$border-radius-xs;
+    border-radius: v.$border-radius-xs;
     cursor: default;
     text-align: center;
-    padding: variables.$card-title-padding;
-    margin: variables.$spacing-lg 0 variables.$spacing-md;
-    font-weight: variables.$font-weight-semibold;
-    letter-spacing: variables.$letter-spacing-base;
+    padding: v.$card-title-padding;
+    margin: v.$spacing-lg 0 v.$spacing-md;
+    font-weight: v.$font-weight-semibold;
+    letter-spacing: v.$letter-spacing-base;
     background-color: rgba(255, 255, 255, 0.7);
   }
 
   &__add-btn {
     flex-shrink: 0;
     width: 100%;
-    background-color: variables.$card-add-btn-bg;
-    color: variables.$add-btn-color;
-    padding: variables.$card-add-btn-padding;
+    background-color: v.$card-add-btn-bg;
+    color: v.$add-btn-color;
+    padding: v.$card-add-btn-padding;
     cursor: pointer;
-    box-shadow: variables.$card-add-btn-shadow;
-    border-radius: variables.$border-oval;
+    box-shadow: v.$card-add-btn-shadow;
+    border-radius: v.$border-oval;
     transition:
       transform 0.2s ease,
       background-color 0.2s ease;
 
     &:hover {
-      background-color: variables.$card-add-btn-bg-hover;
+      background-color: v.$card-add-btn-bg-hover;
       transform: translateY(-2px);
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     }
 
     &:active {
       transform: translateY(0);
-      box-shadow: variables.$card-add-btn-shadow;
+      box-shadow: v.$card-add-btn-shadow;
     }
   }
 
@@ -70,20 +70,20 @@
   }
 
   &__item {
-    border-radius: variables.$border-radius-sm;
+    border-radius: v.$border-radius-sm;
     margin-inline: auto;
-    padding: variables.$card-item-padding;
-    margin: variables.$card-item-margin-y 0;
+    padding: v.$card-item-padding;
+    margin: v.$card-item-margin-y 0;
     list-style: none;
-    background-color: variables.$card-item-bg;
+    background-color: v.$card-item-bg;
     position: relative;
     user-select: none;
     overflow-wrap: anywhere;
-    box-shadow: variables.$card-item-box-shadow;
+    box-shadow: v.$card-item-box-shadow;
 
     &:hover {
-      background-color: variables.$card-item-bg-hover;
-      outline: solid variables.$outline-size variables.$hover-outline-color;
+      background-color: v.$card-item-bg-hover;
+      outline: solid v.$outline-size v.$hover-outline-color;
 
       .card__menu-btn {
         visibility: visible;
@@ -92,7 +92,7 @@
     }
 
     &--selected {
-      outline: solid variables.$outline-size variables.$selected-outline-color;
+      outline: solid v.$outline-size v.$selected-outline-color;
     }
   }
 
@@ -103,35 +103,35 @@
   }
 
   &__checkbox[type="checkbox"] {
-    margin-right: variables.$card-checkbox-margin-right;
-    margin-top: variables.$card-checkbox-margin-top;
+    margin-right: v.$card-checkbox-margin-right;
+    margin-top: v.$card-checkbox-margin-top;
     vertical-align: middle;
-    block-size: variables.$checkbox-size;
-    inline-size: variables.$checkbox-size;
-    accent-color: variables.$card-checkbox-accent-color;
+    block-size: v.$checkbox-size;
+    inline-size: v.$checkbox-size;
+    accent-color: v.$card-checkbox-accent-color;
   }
 
   &__menu-btn {
-    color: variables.$black;
+    color: v.$black;
     position: absolute;
     visibility: hidden;
     opacity: 0;
     border: none;
     background-color: inherit;
-    top: variables.$spacing-sm;
-    right: variables.$spacing-sm;
+    top: v.$spacing-sm;
+    right: v.$spacing-sm;
     display: flex;
     place-items: center;
-    padding: variables.$menu-btn-padding;
-    border-radius: variables.$border-radius;
+    padding: v.$menu-btn-padding;
+    border-radius: v.$border-radius;
 
     &:hover {
-      background-color: variables.$menu-btn-hover-bg;
-      outline: solid variables.$outline-size variables.$menu-btn-active-bg;
+      background-color: v.$menu-btn-hover-bg;
+      outline: solid v.$outline-size v.$menu-btn-active-bg;
     }
 
     &:active {
-      background-color: variables.$menu-btn-active-bg;
+      background-color: v.$menu-btn-active-bg;
     }
   }
 }

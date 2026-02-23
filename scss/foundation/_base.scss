@@ -1,19 +1,19 @@
-@use "./variables";
+@use "./variables" as v;
 
 body {
-  font-family: variables.$font-family-base;
-  font-optical-sizing: variables.$font-optical-sizing;
-  font-weight: variables.$font-weight-base;
-  font-style: variables.$font-style-normal;
+  font-family: v.$font-family-base;
+  font-optical-sizing: v.$font-optical-sizing;
+  font-weight: v.$font-weight-base;
+  font-style: v.$font-style-normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: variables.$font-size-base;
-  color: variables.$color-text-on-light;
+  font-size: v.$font-size-base;
+  color: v.$color-text-on-light;
   height: 100dvh;
   display: flex;
   flex-direction: column;
   background: linear-gradient(
-    variables.$body-bg,
-    mix(variables.$white, variables.$body-bg, 80%)
+    v.$body-bg,
+    mix(v.$white, v.$body-bg, 80%)
   );
 }

@@ -1,23 +1,23 @@
-@use "../foundation/variables";
+@use "../foundation/variables" as v;
 @use "../foundation/function";
 
 .main-header {
   flex-shrink: 0;
-  background-color: variables.$header-bg;
-  color: variables.$color-text-on-dark;
+  background-color: v.$header-bg;
+  color: v.$color-text-on-dark;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: variables.$main-header-width;
+  width: v.$main-header-width;
   position: sticky;
   top: 0;
-  z-index: variables.$z-index-header;
+  z-index: v.$z-index-header;
 
   &__heading {
-    padding: variables.$main-header-heading-padding-y
-      variables.$main-header-heading-padding-x;
-    font-weight: variables.$font-weight-semibold;
-    letter-spacing: variables.$letter-spacing-base;
+    padding: v.$main-header-heading-padding-y
+      v.$main-header-heading-padding-x;
+    font-weight: v.$font-weight-semibold;
+    letter-spacing: v.$letter-spacing-base;
 
     &-link {
       cursor: pointer;
@@ -28,31 +28,31 @@
 
   &__setting-btn {
     height: fit-content;
-    margin-right: variables.$main-header-setting-btn-margin-right;
-    background-color: variables.$header-bg;
-    color: variables.$color-text-on-dark;
-    border-radius: variables.$border-circle;
+    margin-right: v.$main-header-setting-btn-margin-right;
+    background-color: v.$header-bg;
+    color: v.$color-text-on-dark;
+    border-radius: v.$border-circle;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: variables.$setting-btn-size;
+    height: v.$setting-btn-size;
     aspect-ratio: 1;
     transform: rotate(0);
     transition: transform 0.3s ease-in-out;
 
     &__icon {
-      height: variables.$setting-btn-icon-size;
+      height: v.$setting-btn-icon-size;
       aspect-ratio: 1;
     }
 
     &:hover {
-      background-color: variables.$setting-btn-hover-bg;
+      background-color: v.$setting-btn-hover-bg;
       transform: rotate(90deg);
     }
 
     &:active {
-      background-color: variables.$setting-btn-active-bg;
+      background-color: v.$setting-btn-active-bg;
     }
   }
 }
