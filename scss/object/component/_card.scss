@@ -4,7 +4,7 @@
 .card {
   border-radius: variables.$border-radius-lg;
   width: variables.$card-width;
-  box-shadow: variables.$card-box-shadow;
+  box-shadow: variables.$card-shadow;
   padding: 0 variables.$card-padding;
   display: flex;
   flex-direction: column;
@@ -28,11 +28,13 @@
   }
 
   &__title {
-    @include mixins.border-top-radius(variables.$border-radius-lg);
+    border-radius: variables.$border-radius-xs;
     text-align: center;
     padding: variables.$card-title-padding;
+    margin: variables.$spacing-lg 0 variables.$spacing-md;
     font-weight: variables.$font-weight-semibold;
     letter-spacing: variables.$letter-spacing-base;
+    background-color: rgba(255, 255, 255, 0.7);
   }
 
   &__add-btn {
@@ -43,8 +45,7 @@
     border-radius: variables.$border-radius-lg;
     padding: variables.$card-add-btn-padding;
     cursor: pointer;
-		box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
-
+    box-shadow: variables.$card-add-btn-shadow;
     border-radius: variables.$border-oval;
   }
 
@@ -83,6 +84,7 @@
   &__label {
     display: flex;
     align-items: flex-start;
+		cursor: pointer;
   }
 
   &__checkbox[type="checkbox"] {

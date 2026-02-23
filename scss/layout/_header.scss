@@ -4,7 +4,6 @@
 .main-header {
   flex-shrink: 0;
   background-color: variables.$header-bg;
-  // background:  linear-gradient(135deg, variables.$header-bg 0%, variables.$header-bg 100%);
   color: variables.$color-text-on-dark;
   display: flex;
   justify-content: space-between;
@@ -17,9 +16,14 @@
   &__heading {
     padding: variables.$main-header-heading-padding-y
       variables.$main-header-heading-padding-x;
-    cursor: default;
     font-weight: variables.$font-weight-semibold;
     letter-spacing: variables.$letter-spacing-base;
+
+		&-link{
+			cursor: pointer;
+			text-decoration: none;
+			color: inherit;
+		}
   }
 
   &__setting-btn {
