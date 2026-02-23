@@ -1,0 +1,11 @@
+// 背景色の明るさによって処理を変えている
+@function hover-background-color($color, $weight: 10%) {
+  $dark-mode-adjustment: 10%;
+
+  @if lightness($color) > 50% {
+    @return mix(v.$black, $color, $weight);
+  } @else {
+    // 暗い時は濃くする
+    @return mix(v.$white, $color, $weight + $dark-mode-adjustment);
+  }
+}

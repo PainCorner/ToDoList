@@ -1,8 +1,10 @@
+@use "function" as fn;
+
 // ============================================================
 // Color System（色の体系）
 // ============================================================
 /* ベースカラー */
-$black: #333333;
+$black: #333;
 $white: #fafafa;
 $primary-blue: #2670f9;
 
@@ -18,7 +20,7 @@ $body-bg: rgba(187, 215, 209, 0.5);
 
 /* ヘッダーエリア */
 $header-bg: #0f172a;
-$setting-btn-hover-bg: mix($white, $header-bg, 20%);
+$setting-btn-hover-bg: fn.hover-background-color($header-bg);
 $setting-btn-active-bg: mix($black, $header-bg, 10%);
 
 /* 背景グラデーション（Body） */
@@ -34,10 +36,11 @@ $card-done-bg: #605d5d;
 
 /* カード（共通） */
 $card-item-bg: $white;
+$card-item-bg-hover: fn.hover-background-color($card-item-bg);
 
 /* カード「追加」ボタン（透過背景） */
-// $card-add-btn-bg: rgba(244, 244, 255, 0.8);
 $card-add-btn-bg: rgba(225, 225, 225, 0.9);
+$card-add-btn-bg-hover: fn.hover-background-color($card-add-btn-bg);
 $card-add-btn-border-color: rgba(0, 0, 0, 0.15);
 
 $card-checkbox-accent-color: $primary-blue;
