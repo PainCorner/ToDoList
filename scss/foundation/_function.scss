@@ -3,9 +3,9 @@
   $dark-mode-adjustment: 10%;
 
   @if lightness($color) > 50% {
-    @return mix(v.$black, $color, $weight);
+    @return mix(#333, $color, $weight);
   } @else {
     // 暗い時は濃くする
-    @return mix(v.$white, $color, $weight + $dark-mode-adjustment);
+    @return mix(#fafafa, $color, $weight + $dark-mode-adjustment);
   }
 }

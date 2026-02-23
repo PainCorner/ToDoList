@@ -29,6 +29,7 @@
 
   &__title {
     border-radius: variables.$border-radius-xs;
+    cursor: default;
     text-align: center;
     padding: variables.$card-title-padding;
     margin: variables.$spacing-lg 0 variables.$spacing-md;
@@ -75,7 +76,7 @@
       background-color: variables.$card-item-bg-hover;
       outline: solid variables.$outline-size variables.$hover-outline-color;
 
-      .card__del-btn {
+      .card__menu-btn {
         visibility: visible;
         opacity: 1;
       }
@@ -101,7 +102,8 @@
     accent-color: variables.$card-checkbox-accent-color;
   }
 
-  &__del-btn {
+  &__menu-btn {
+    color: variables.$black;
     position: absolute;
     visibility: hidden;
     opacity: 0;
@@ -111,16 +113,16 @@
     right: variables.$spacing-sm;
     display: flex;
     place-items: center;
-    padding: variables.$del-btn-padding;
+    padding: variables.$menu-btn-padding;
     border-radius: variables.$border-radius;
 
     &:hover {
-      background-color: variables.$del-btn-hover-bg;
-      outline: solid variables.$outline-size variables.$del-btn-active-bg;
+      background-color: variables.$menu-btn-hover-bg;
+      outline: solid variables.$outline-size variables.$menu-btn-active-bg;
     }
 
     &:active {
-      background-color: variables.$del-btn-active-bg;
+      background-color: variables.$menu-btn-active-bg;
     }
   }
 }

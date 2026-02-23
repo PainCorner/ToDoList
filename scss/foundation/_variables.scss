@@ -36,7 +36,8 @@ $card-done-bg: #605d5d;
 
 /* カード（共通） */
 $card-item-bg: $white;
-$card-item-bg-hover: fn.hover-background-color($card-item-bg);
+//▼ 現在未定 ▼
+$card-item-bg-hover: $card-item-bg;
 
 /* カード「追加」ボタン（透過背景） */
 $card-add-btn-bg: rgba(225, 225, 225, 0.9);
@@ -45,8 +46,8 @@ $card-add-btn-border-color: rgba(0, 0, 0, 0.15);
 
 $card-checkbox-accent-color: $primary-blue;
 
-$del-btn-hover-bg: mix($black, $card-item-bg, 10%);
-$del-btn-active-bg: mix($black, $card-item-bg, 20%);
+$menu-btn-hover-bg: mix($black, $card-item-bg, 10%);
+$menu-btn-active-bg: mix($black, $card-item-bg, 20%);
 
 /* アウトライン */
 $hover-outline-color: mix($black, $card-item-bg, 60%);
@@ -91,7 +92,7 @@ $card-padding: $spacing-md;
 $card-title-padding: $spacing-md;
 $card-add-btn-padding: $spacing-sm;
 $card-item-padding: $spacing-sm;
-$del-btn-padding: $spacing-xs;
+$menu-btn-padding: $spacing-xs;
 
 /* margin */
 $main-header-margin-bottom: $spacing-xl;
@@ -118,8 +119,8 @@ $card-width: 25dvw;
 $card-add-btn: 100%;
 
 /* 位置 */
-$del-btn-top: $card-item-padding;
-$del-btn-right: $card-item-padding;
+$menu-btn-top: $card-item-padding;
+$menu-btn-right: $card-item-padding;
 $main-header-btn-margin-right: $main-header-heading-padding-y;
 $main-header-btn-padding: 0.5rem;
 

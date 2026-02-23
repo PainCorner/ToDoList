@@ -352,6 +352,7 @@ body {
 }
 .card__title {
   border-radius: 0.1rem;
+  cursor: default;
   text-align: center;
   padding: 1rem;
   margin: 1.5rem 0 1rem;
@@ -393,10 +394,10 @@ body {
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 .card__item:hover {
-  background-color: rgb(230.1, 230.1, 230.1);
+  background-color: #fafafa;
   outline: solid 0.2rem rgb(130.6, 130.6, 130.6);
 }
-.card__item:hover .card__del-btn {
+.card__item:hover .card__menu-btn {
   visibility: visible;
   opacity: 1;
 }
@@ -416,7 +417,8 @@ body {
   inline-size: 1rem;
   accent-color: #2670f9;
 }
-.card__del-btn {
+.card__menu-btn {
+  color: #333;
   position: absolute;
   visibility: hidden;
   opacity: 0;
@@ -429,10 +431,10 @@ body {
   padding: 0.2rem;
   border-radius: 0.25rem;
 }
-.card__del-btn:hover {
+.card__menu-btn:hover {
   background-color: rgb(230.1, 230.1, 230.1);
   outline: solid 0.2rem rgb(210.2, 210.2, 210.2);
 }
-.card__del-btn:active {
+.card__menu-btn:active {
   background-color: rgb(210.2, 210.2, 210.2);
 }/*# sourceMappingURL=style.css.map */
