@@ -41,7 +41,7 @@ $card-item-bg-hover: $card-item-bg;
 
 /* カード「追加」ボタン（透過背景） */
 $card-add-btn-bg: rgba(225, 225, 225, 0.9);
-$card-add-btn-bg-hover: fn.hover-background-color($card-add-btn-bg,20%);
+$card-add-btn-bg-hover: fn.hover-background-color($card-add-btn-bg, 20%);
 $card-add-btn-border-color: rgba(0, 0, 0, 0.15);
 
 $card-checkbox-accent-color: $primary-blue;
@@ -148,8 +148,8 @@ $letter-spacing-base: 0.1rem;
 // ============================================================
 // Z-index（重なり順）
 // ============================================================
-$z-index-back:-1;
-$z-index-base:1;
+$z-index-back: -1;
+$z-index-base: 1;
 $z-index-header: 100;
 $z-index-modal: 1000;
 

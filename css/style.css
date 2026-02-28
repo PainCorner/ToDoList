@@ -323,6 +323,23 @@ body {
 下記参考サイト
 リンク：https://github.com/hiloki/flocss?tab*readme-ov-file#ファイルディレクトリ構成
 */
+.drawer {
+  position: fixed;
+  inset: 0 0 0 auto;
+  width: 280px;
+  height: 100%;
+  z-index: 1000;
+  border: none;
+  outline: none;
+}
+.drawer::backdrop {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+/* 
+下記参考サイト
+リンク：https://github.com/hiloki/flocss?tab*readme-ov-file#ファイルディレクトリ構成
+*/
 .card {
   border-radius: 0.5rem;
   width: 25dvw;

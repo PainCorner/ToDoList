@@ -1,0 +1,15 @@
+@use "../foundation/variables" as v;
+
+.drawer{
+  position: fixed;
+  inset: 0 0 0 auto;
+  width: 280px;
+  height: 100%;
+  z-index: v.$z-index-modal;
+  border: none;
+  outline: none;
+
+  &::backdrop{
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
