@@ -44,7 +44,6 @@
     background-color: v.$card-add-btn-bg;
     color: v.$add-btn-color;
     padding: v.$card-add-btn-padding;
-    cursor: pointer;
     box-shadow: v.$card-add-btn-shadow;
     border-radius: v.$border-oval;
     transition:
@@ -99,7 +98,6 @@
   &__label {
     display: flex;
     align-items: flex-start;
-    cursor: pointer;
   }
 
   &__checkbox[type="checkbox"] {
