@@ -4,7 +4,6 @@
 リンク：https://github.com/hiloki/flocss?tab*readme-ov-file#ファイルディレクトリ構成
 */
 /* ベースカラー */
-/* 前景色（文字色） */
 /* メイン */
 /* ヘッダーエリア */
 /* 背景グラデーション（Body） */
@@ -105,7 +104,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-size: 1.2rem;
   color: #333;
-  height: 100dvh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   background: linear-gradient(rgba(187, 215, 209, 0.5), rgba(245.1538461538, 247.3076923077, 246.8461538462, 0.9));
@@ -190,19 +189,19 @@ body {
   background-color: #0f172a;
   box-shadow: -10px 0 30px rgba(51, 51, 51, 0.1);
   color: #fafafa;
-  display: block;
+  display: flex;
+  flex-direction: column;
   visibility: hidden;
   opacity: 0;
   position: fixed;
   inset: 0 0 0 auto;
-  width: 20rem;
+  width: 22.5rem;
   min-height: 100dvh;
   z-index: 1000;
   border: none;
   outline: none;
-  transform: translateX(20rem);
-  border-left: 1px solid rgba(250, 250, 250, 0.1);
-  transition: opacity 0.4s ease-out, visibility 0.4s ease-out, transform 0.4s ease-out;
+  transform: translateX(22.5rem);
+  transition: opacity 0.5s ease-out, visibility 0.5s ease-out, transform 0.5s ease-out;
 }
 .drawer[open] {
   visibility: visible;
@@ -210,7 +209,60 @@ body {
   transform: translateX(0);
 }
 .drawer::backdrop {
-  background-color: rgba(51, 51, 51, 0.7);
+  background-color: rgba(51, 51, 51, 0.8);
+}
+.drawer__header {
+  flex-shrink: 0;
+}
+.drawer__title {
+  background-color: rgb(109, 113.8, 125.2);
+  text-align: center;
+  padding: 2rem 0;
+  letter-spacing: 0.1rem;
+  flex-shrink: 0;
+}
+.drawer__list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+  height: 50dvh;
+}
+.drawer__item {
+  position: relative;
+}
+.drawer__btn {
+  color: #fafafa;
+  padding: 1.5rem;
+  width: 100%;
+  border-left: 4px solid transparent;
+  transition: all 0.2s ease;
+  text-align: center;
+  cursor: pointer;
+}
+.drawer__btn:hover {
+  background-color: rgb(62, 68.4, 83.6);
+  border-left-color: #2670f9;
+}
+.drawer__footer {
+  margin-top: auto;
+  padding: 2rem;
+  text-align: center;
+  border-top: 1px solid rgba(250, 250, 250, 0.1);
+}
+.drawer__close-btn {
+  color: #fafafa;
+  font-size: 1.75rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+  width: 3rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: rgba(250, 250, 250, 0.6);
+}
+.drawer__close-btn:hover {
+  color: #0f172a;
+  transform: scale(1.1);
 }
 
 /* 

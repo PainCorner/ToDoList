@@ -8,10 +8,6 @@ $black: #333;
 $white: #fafafa;
 $primary-blue: #2670f9;
 
-/* 前景色（文字色） */
-$color-text-on-light: $black;
-$color-text-on-dark: $white;
-
 // Add button specific color (ベースカラーから派生)
 $add-btn-color: rgba($black, 0.9);
 
@@ -52,7 +48,9 @@ $menu-btn-active-bg: mix($black, $card-item-bg, 20%);
 
 /* ドロワーメニュー */
 $drawer-bg: $header-bg;
-$drawer-bg-backdrop: rgba($black, 0.7);
+$drawer-bg-backdrop: rgba($black, 0.8);
+$drawer-title-bg: mix($white, $drawer-bg, 40%);
+$close-btn-bg: rgba($white, 0.6);
 
 /* アウトライン */
 $hover-outline-color: mix($black, $card-item-bg, 60%);
@@ -115,7 +113,9 @@ $body-height: 100dvh;
 
 /* 幅 */
 $card-width: 25dvw;
-$drawer-width: 20rem;
+$drawer-width: 22.5rem;
+
+$close-btn-width: 3rem;
 
 /* 位置 */
 $menu-btn-top: $card-item-padding;
@@ -130,6 +130,7 @@ $font-family-sans-serif:
   sans-serif;
 $font-family-base: $font-family-sans-serif;
 $font-size-base: 1.2rem;
+$close-btn-font-size: 1.75rem;
 
 $font-weight-base: 400;
 $font-weight-semibold: 600;
@@ -167,7 +168,7 @@ $border-oval: 50px;
 // ============================================================
 // Transitions（アニメーション）
 // ============================================================
-$transition-duration-base: 0.4s;
+$transition-duration-base: 0.5s;
 $transition-timing-base: ease-out;
 $transition-base: $transition-duration-base $transition-timing-base;
 

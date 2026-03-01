@@ -1,21 +1,23 @@
 @use "../foundation/variables" as v;
+@use "../foundation/function" as fn;
 
 .drawer {
   background-color: v.$drawer-bg;
   box-shadow: v.$drawer-shadow;
-  color: v.$color-text-on-dark;
-  display: block;
+  color: v.$white;
+  display: flex;
+  flex-direction: column;
   visibility: hidden;
   opacity: 0;
   position: fixed;
   inset: 0 0 0 auto;
   width: v.$drawer-width;
-  min-height: v.$body-height;
+  // heightだと画面いっぱいにならない
+  min-height: 100dvh;
   z-index: v.$z-index-modal;
   border: none;
   outline: none;
   transform: translateX(v.$drawer-width);
-  border-left: 1px solid rgba(v.$white, 0.1);
   transition:
     opacity v.$transition-base,
     visibility v.$transition-base,
@@ -29,5 +31,69 @@
 
   &::backdrop {
     background-color: v.$drawer-bg-backdrop;
+  }
+
+  &__header {
+    flex-shrink: 0;
+  }
+
+  &__title {
+    background-color: v.$drawer-title-bg;
+    text-align: center;
+    padding: v.$spacing-xl 0;
+    letter-spacing: v.$letter-spacing-base;
+    flex-shrink: 0;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: v.$spacing-lg;
+    height: 50dvh;
+  }
+
+  &__item {
+    position: relative;
+  }
+
+  &__btn {
+    color: v.$white;
+    padding: v.$spacing-lg;
+    width: 100%;
+    border-left: 4px solid transparent;
+    transition: all 0.2s ease;
+    text-align: center;
+    cursor: pointer;
+
+    &:hover {
+      background-color: fn.hover-background-color(v.$drawer-bg);
+      border-left-color: v.$primary-blue;
+    }
+  }
+
+  &__footer {
+    margin-top: auto;
+    padding: v.$spacing-xl;
+    text-align: center;
+    border-top: 1px solid rgba(v.$white, 0.1);
+  }
+
+  &__close-btn {
+    color: v.$white;
+    font-size: v.$close-btn-font-size;
+    cursor: pointer;
+    transition:
+      transform 0.2s ease,
+      color 0.2s ease;
+    width: v.$close-btn-width;
+    aspect-ratio: 1;
+    border-radius: v.$border-circle;
+    background-color: v.$close-btn-bg;
+
+    &:hover {
+      color: v.$drawer-bg;
+      transform: scale(1.1);
+    }
   }
 }

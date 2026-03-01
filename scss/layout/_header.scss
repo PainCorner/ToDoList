@@ -4,7 +4,7 @@
 .main-header {
   flex-shrink: 0;
   background-color: v.$header-bg;
-  color: v.$color-text-on-dark;
+  color: v.$white;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -29,7 +29,7 @@
     height: fit-content;
     margin-right: v.$main-header-setting-btn-margin-right;
     background-color: v.$header-bg;
-    color: v.$color-text-on-dark;
+    color: v.$white;
     border-radius: v.$border-circle;
     display: flex;
     justify-content: center;
