@@ -1,10 +1,4 @@
-// 参考サイト：https://github.com/twbs/bootstrap/blob/main/scss/_variables.scss
-// 一貫性のため、ため、以下引用
-/* 
-    Variables should follow the `$component-state-property-size` formula for
-    consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
-*/
-// 変数は、HTMLの要素順にしている。
+@use "function" as fn;
 
 // ============================================================
 // Color System（色の体系）
@@ -12,15 +6,21 @@
 /* ベースカラー */
 $black: #333;
 $white: #fafafa;
+$primary-blue: #2670f9;
 
 /* 前景色（文字色） */
 $color-text-on-light: $black;
 $color-text-on-dark: $white;
 
+$add-btn-color: rgba(51, 51, 51, 0.9);
+
 // 背景色
+/* メイン */
+$body-bg: rgba(187, 215, 209, 0.5);
+
 /* ヘッダーエリア */
-$header-bg: #151515;
-$setting-btn-hover-bg: mix($white, $header-bg, 20%);
+$header-bg: #0f172a;
+$setting-btn-hover-bg: fn.hover-background-color($header-bg);
 $setting-btn-active-bg: mix($black, $header-bg, 10%);
 
 /* 背景グラデーション（Body） */
@@ -29,39 +29,43 @@ $bg-gradient-end: #ece2df;
 $bg-overlay-light: rgba(255, 255, 255, 0.5);
 $bg-overlay-dark: rgba(0, 0, 0, 0.5);
 
-/* タスクアクションボタン */
-$task-actions-btn-add-bg: #2670f9;
-$task-actions-btn-add-hover-bg: mix($white, $task-actions-btn-add-bg, 20%);
-$task-actions-btn-add-active-bg: mix($black, $task-actions-btn-add-bg, 10%);
-
 /* カード（個別） */
-$card-todo-bg: #c3e3fa;
-$card-doing-bg: #94f194;
-$card-done-bg: #ffc0cb;
+$card-todo-bg: #5e8fb7;
+$card-doing-bg: #5fbc5f;
+$card-done-bg: #605d5d;
 
 /* カード（共通） */
-$card-item-bg: #fefefe;
-$card-item-border-color: mix($black, $card-item-bg, 40%);
+$card-item-bg: $white;
+//▼ 現在未定 ▼
+$card-item-bg-hover: $card-item-bg;
 
-$card-checkbox-accent-color: #2670f9;
+/* カード「追加」ボタン（透過背景） */
+$card-add-btn-bg: rgba(225, 225, 225, 0.9);
+$card-add-btn-bg-hover: fn.hover-background-color($card-add-btn-bg,20%);
+$card-add-btn-border-color: rgba(0, 0, 0, 0.15);
 
-$del-btn-hover-bg: mix($black, $card-item-bg, 10%);
-$del-btn-active-bg: mix($black, $card-item-bg, 20%);
+$card-checkbox-accent-color: $primary-blue;
+
+$menu-btn-hover-bg: mix($black, $card-item-bg, 10%);
+$menu-btn-active-bg: mix($black, $card-item-bg, 20%);
+
+/* アウトライン */
+$hover-outline-color: mix($black, $card-item-bg, 60%);
+$selected-outline-color: $primary-blue;
 
 // ============================================================
 // Shadows（影）
 // ============================================================
 /* 共通 */
-// カード用の軽い影
-$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05),
-  0 4px 6px -2px rgba(0, 0, 0, 0.02);
-$shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1),
-  0 1px 2px rgba(0, 0, 0, 0.06);
-// カラム用の広がる影
+$shadow-lg:
+  0 4px 20px -3px rgba(0, 0, 0, 0.04),
+  0 2px 10px -2px rgba(0, 0, 0, 0.02);
+$shadow-sm: 2px 2px 4px rgba(0, 0, 0, 0.3);
 
 /* 個別 */
-$card-box-shadow: $shadow-lg;
+$card-shadow: $shadow-lg;
 $card-item-box-shadow: $shadow-sm;
+$card-add-btn-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
 
 // ============================================================
 // Options（全体設定）
@@ -70,7 +74,6 @@ $card-item-box-shadow: $shadow-sm;
 // ============================================================
 // Spacing（余白）
 // ============================================================
-
 /* 共通スペーシング */
 $spacing-xxs: 0.1rem;
 $spacing-xs: 0.2rem;
@@ -79,20 +82,24 @@ $spacing-ms: 0.8rem;
 $spacing-md: 1rem;
 $spacing-lg: 1.5rem;
 $spacing-xl: 2rem;
+$spacing-xxl: 4rem;
 
 /* padding */
-$main-header-heading-padding: $spacing-xl;
+$main-header-heading-padding-x: $spacing-xxl;
+$main-header-heading-padding-y: $spacing-xl;
 $task-actions-padding-y: $spacing-lg;
-$btn-add-padding: $spacing-sm;
-$card-title-padding: $spacing-sm;
+$card-padding: $spacing-md;
+$card-title-padding: $spacing-md;
+$card-add-btn-padding: $spacing-sm;
 $card-item-padding: $spacing-sm;
-$del-btn-padding: $spacing-xs;
+$menu-btn-padding: $spacing-xs;
 
 /* margin */
-$main-header-setting-btn-margin-right: $spacing-xl;
+$main-header-margin-bottom: $spacing-xl;
+$main-header-setting-btn-margin-right: $spacing-xxl;
 $task-actions-margin-bottom: $spacing-lg;
 $btn-add-margin-left: $spacing-lg;
-$card-item-margin: $spacing-ms;
+$card-item-margin-y: $spacing-md;
 $card-checkbox-margin-right: $spacing-sm;
 $card-checkbox-margin-top: $spacing-xs;
 
@@ -100,34 +107,39 @@ $card-checkbox-margin-top: $spacing-xs;
 // Body（基本スタイル）
 // ============================================================
 /* サイズ */
-$card-checkbox-size: 1rem;
-
-// 30pxはsvgの大きさで、ボタンをフィットさせるために設定
 $setting-btn-size: 4rem;
 $setting-btn-icon-size: 60%;
 
+/* 高さ */
+$body-height: 100dvh;
+
 /* 幅 */
 $main-header-width: 100%;
-$card-width: 25vw;
+$card-width: 25dvw;
+$card-add-btn: 100%;
 
 /* 位置 */
-$del-btn-top: $card-item-padding;
-$del-btn-right: $card-item-padding;
-$main-header-btn-margin-right: $main-header-heading-padding;
+$menu-btn-top: $card-item-padding;
+$menu-btn-right: $card-item-padding;
+$main-header-btn-margin-right: $main-header-heading-padding-y;
 $main-header-btn-padding: 0.5rem;
+
 // ============================================================
 // Typography（タイポグラフィ）
 // ============================================================
-/* フォントシステム */
-$font-family-sans-serif: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo,
+$font-family-sans-serif:
+  "LINE Seed JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo,
   sans-serif;
 $font-family-base: $font-family-sans-serif;
 $font-size-base: 1.2rem;
 
-// ============================================================
-// Components（共通パーツの部品）
-// ============================================================
-$checkbox-size: 1rem;
+$font-weight-base: 400;
+$font-weight-semibold: 600;
+$font-weight-bold: 800;
+
+$font-optical-sizing: auto;
+$font-style-normal: normal;
+$letter-spacing-base: 0.1rem;
 
 // ============================================================
 // Grid & Breakpoints（レイアウトとレスポンシブ）
@@ -136,21 +148,33 @@ $checkbox-size: 1rem;
 // ============================================================
 // Z-index（重なり順）
 // ============================================================
+$z-index-back:-1;
+$z-index-base:1;
 $z-index-header: 100;
 $z-index-modal: 1000;
 
 // ============================================================
 // Borders（枠線）
 // ============================================================
-$outline-size: 0.125rem;
+$border-size: 0.2rem;
+$outline-size: 0.2rem;
 
 $border-radius: 0.25rem;
+$border-radius-xs: 0.1rem;
 $border-radius-sm: 0.125rem;
 $border-radius-lg: 0.5rem;
 
 /* 円形 */
 $border-circle: 50%;
 
+/* 楕円形 */
+$border-oval: 50px;
+
 // ============================================================
 // Transitions（アニメーション）
 // ============================================================
+
+// ============================================================
+// Components（共通パーツの部品）
+// ============================================================
+$checkbox-size: 1rem;

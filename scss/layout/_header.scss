@@ -2,6 +2,7 @@
 @use "../foundation/function";
 
 .main-header {
+  flex-shrink: 0;
   background-color: variables.$header-bg;
   color: variables.$color-text-on-dark;
   display: flex;
@@ -13,8 +14,16 @@
   z-index: variables.$z-index-header;
 
   &__heading {
-    padding: variables.$main-header-heading-padding;
-    cursor: default;
+    padding: variables.$main-header-heading-padding-y
+      variables.$main-header-heading-padding-x;
+    font-weight: variables.$font-weight-semibold;
+    letter-spacing: variables.$letter-spacing-base;
+
+    &-link {
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+    }
   }
 
   &__setting-btn {
@@ -29,6 +38,8 @@
     align-items: center;
     height: variables.$setting-btn-size;
     aspect-ratio: 1;
+    transform: rotate(0);
+    transition: transform 0.3s ease-in-out;
 
     &__icon {
       height: variables.$setting-btn-icon-size;
@@ -37,6 +48,7 @@
 
     &:hover {
       background-color: variables.$setting-btn-hover-bg;
+      transform: rotate(90deg);
     }
 
     &:active {
