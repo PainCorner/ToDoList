@@ -1,15 +1,33 @@
 @use "../foundation/variables" as v;
 
 .drawer {
+  background-color: v.$drawer-bg;
+  box-shadow: v.$drawer-shadow;
+  color: v.$color-text-on-dark;
+  display: block;
+  visibility: hidden;
+  opacity: 0;
   position: fixed;
   inset: 0 0 0 auto;
-  width: 280px;
-  min-height: 100dvh;
+  width: v.$drawer-width;
+  min-height: v.$body-height;
   z-index: v.$z-index-modal;
   border: none;
   outline: none;
+  transform: translateX(v.$drawer-width);
+  border-left: 1px solid rgba(v.$white, 0.1);
+  transition:
+    opacity v.$transition-base,
+    visibility v.$transition-base,
+    transform v.$transition-base;
+
+  &[open] {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
+  }
 
   &::backdrop {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: v.$drawer-bg-backdrop;
   }
 }

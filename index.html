@@ -15,13 +15,13 @@
 
 <body>
   <header class="main-header">
-    <h1 class="main-header__heading"><a class="main-header__heading-link" href="#">タスクボード</a></h1>
+    <h1 class="main-header__heading"><a class="main-header__link" href="#">タスクボード</a></h1>
     <button class="main-header__setting-btn" type="button">
       <!-- 
         Icons: Bootstrap Icons (https://icons.getbootstrap.jp/icons/gear/)
         License: MIT
       -->
-      <svg class="main-header__setting-btn__icon" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+      <svg class="main-header__setting-btn-icon" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
         class="bi bi-gear" viewBox="0 0 16 16">
         <path
           d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0" />
@@ -31,7 +31,6 @@
     </button>
   </header>
   <main class="main-body">
-    <!-- <div class="task-board"> -->
     <section class="card card--todo">
       <header class="card__header">
         <h2 class="card__title">開始前</h2>
@@ -50,7 +49,7 @@
       <ul class="card__list">
         <!-- 選択されたとき、テキスト編集をするなら、下記のクラスや属性を設定 -->
         <!-- <li class="card__item card__item--todo card__item--selected" contenteditable="true"> -->
-        <li class="card__item card__item--todo">
+        <li class="card__item">
           <label class="card__label">
             <input class="card__checkbox" type="checkbox">
             <span class="card__text">開始前</span>
@@ -159,7 +158,8 @@
     </section>
   </main>
   <dialog class="drawer drawer--settings">
-    <button class="drawer--settings__close-btn">×</button>
+    <h2 class="drawer__title">設定</h2>
+    <button class="drawer__close-btn">閉じる</button>
   </dialog>
 </body>
 

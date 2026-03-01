@@ -4,10 +4,10 @@ export const View = {
   selectors: {
     settingsBtn: '.main-header__setting-btn',
     drawerSettings: '.drawer--settings',
-    drawerCloseBtn: '.drawer--settings__close-btn'
+    drawerCloseBtn: '.drawer__close-btn'
   },
 
-  // Elementノードを格納していくもの
+  // Elementノードを格納していくもの（オブジェクトのようなもの）
   el: {},
 
   init() {
@@ -28,8 +28,13 @@ export const View = {
       }
     });
 
-    this.el.drawerCloseBtn?.addEventListener('click', () => {
-      this.el.drawerSettings?.close();
+    this.el.drawerCloseBtn?.addEventListener('click', () => this.el.drawerSettings?.close());
+
+    // ダイアログ以外をクリックしたら閉じる処理
+    this.el.drawerSettings?.addEventListener('click', (e) => {
+      if (e.target === this.el.drawerSettings) {
+        this.el.drawerSettings.close();
+      }
     });
   }
 };

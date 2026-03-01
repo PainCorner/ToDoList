@@ -12,8 +12,5 @@ body {
   height: 100dvh;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(
-    v.$body-bg,
-    mix(v.$white, v.$body-bg, 80%)
-  );
+  background: linear-gradient(v.$body-bg, mix(v.$white, v.$body-bg, 80%));
 }

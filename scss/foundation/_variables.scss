@@ -19,7 +19,6 @@ $add-btn-color: rgba($black, 0.9);
 /* メイン */
 $body-bg: rgba(#bbd7d1, 0.5);
 
-
 /* ヘッダーエリア */
 $header-bg: #0f172a;
 $setting-btn-hover-bg: fn.hover-background-color($header-bg);
@@ -51,6 +50,10 @@ $card-checkbox-accent-color: $primary-blue;
 $menu-btn-hover-bg: mix($black, $card-item-bg, 10%);
 $menu-btn-active-bg: mix($black, $card-item-bg, 20%);
 
+/* ドロワーメニュー */
+$drawer-bg: $header-bg;
+$drawer-bg-backdrop: rgba($black, 0.7);
+
 /* アウトライン */
 $hover-outline-color: mix($black, $card-item-bg, 60%);
 $selected-outline-color: $primary-blue;
@@ -66,7 +69,7 @@ $shadow-sm: 2px 2px 4px rgba($black, 0.3);
 
 /* 個別 */
 $card-add-btn-shadow: 0 4px 6px rgba($black, 0.25);
-
+$drawer-shadow: -10px 0 30px rgba($black, 0.1);
 // ============================================================
 // Spacing（余白）
 // ============================================================
@@ -112,6 +115,7 @@ $body-height: 100dvh;
 
 /* 幅 */
 $card-width: 25dvw;
+$drawer-width: 20rem;
 
 /* 位置 */
 $menu-btn-top: $card-item-padding;
@@ -163,6 +167,9 @@ $border-oval: 50px;
 // ============================================================
 // Transitions（アニメーション）
 // ============================================================
+$transition-duration-base: 0.4s;
+$transition-timing-base: ease-out;
+$transition-base: $transition-duration-base $transition-timing-base;
 
 // ============================================================
 // Components（共通パーツの部品）

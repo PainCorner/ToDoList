@@ -11,6 +11,7 @@
 /* カード（個別） */
 /* カード（共通） */
 /* カード「追加」ボタン（透過背景） */
+/* ドロワーメニュー */
 /* アウトライン */
 /* 共通 */
 /* 個別 */
@@ -79,7 +80,8 @@ a {
   color: inherit;
 }
 
-ul, ol {
+ul,
+ol {
   list-style: none;
 }
 
@@ -130,7 +132,10 @@ body {
   font-weight: 600;
   letter-spacing: 0.1rem;
 }
-.main-header__heading-link {
+.main-header {
+  /* flattened link element instead of nested heading-link */
+}
+.main-header__link {
   text-decoration: none;
   color: inherit;
 }
@@ -149,16 +154,19 @@ body {
   transform: rotate(0);
   transition: transform 0.3s ease-in-out;
 }
-.main-header__setting-btn__icon {
-  height: 60%;
-  aspect-ratio: 1;
-}
 .main-header__setting-btn:hover {
   background-color: rgb(62, 68.4, 83.6);
   transform: rotate(90deg);
 }
 .main-header__setting-btn:active {
   background-color: rgb(18.6, 25.8, 42.9);
+}
+.main-header {
+  /* icon element flattened to avoid double __ */
+}
+.main-header__setting-btn-icon {
+  height: 60%;
+  aspect-ratio: 1;
 }
 
 /* 
@@ -179,16 +187,30 @@ body {
 リンク：https://github.com/hiloki/flocss?tab*readme-ov-file#ファイルディレクトリ構成
 */
 .drawer {
+  background-color: #0f172a;
+  box-shadow: -10px 0 30px rgba(51, 51, 51, 0.1);
+  color: #fafafa;
+  display: block;
+  visibility: hidden;
+  opacity: 0;
   position: fixed;
   inset: 0 0 0 auto;
-  width: 280px;
+  width: 20rem;
   min-height: 100dvh;
   z-index: 1000;
   border: none;
   outline: none;
+  transform: translateX(20rem);
+  border-left: 1px solid rgba(250, 250, 250, 0.1);
+  transition: opacity 0.4s ease-out, visibility 0.4s ease-out, transform 0.4s ease-out;
+}
+.drawer[open] {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(0);
 }
 .drawer::backdrop {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(51, 51, 51, 0.7);
 }
 
 /* 
