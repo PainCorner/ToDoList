@@ -254,7 +254,7 @@ body {
   color: #fafafa;
   font-size: 1.75rem;
   cursor: pointer;
-  transition: transform 0.2s ease, color 0.2s ease;
+  transition: transform 0.2s ease, color 0.2s ease, background-color 0.2s ease;
   width: 3rem;
   aspect-ratio: 1;
   border-radius: 50%;
@@ -262,7 +262,11 @@ body {
 }
 .drawer__close-btn:hover {
   color: #0f172a;
+  background-color: #2670f9;
   transform: scale(1.1);
+}
+.drawer__close-btn:active {
+  transform: scale(0.95);
 }
 
 /* 

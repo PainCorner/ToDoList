@@ -85,7 +85,8 @@
     cursor: pointer;
     transition:
       transform 0.2s ease,
-      color 0.2s ease;
+      color 0.2s ease,
+      background-color 0.2s ease;
     width: v.$close-btn-width;
     aspect-ratio: 1;
     border-radius: v.$border-circle;
@@ -93,7 +94,12 @@
 
     &:hover {
       color: v.$drawer-bg;
+      background-color: v.$primary-blue;
       transform: scale(1.1);
+    }
+
+    &:active {
+      transform: scale(0.95);
     }
   }
 }
