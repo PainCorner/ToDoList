@@ -1,18 +1,35 @@
 ﻿import { TodoModel } from "./model.js";
 import { TodoView } from "./view.js";
 
+const CARD_STATUS_BY_CLASS = {
+  "card--todo": "todo",
+  "card--doing": "doing",
+  "card--done": "done"
+};
+
+const ALLOWED_STATUS = ["todo", "doing", "done"];
+
+const getStatusFromButton = (button) => {
+  const card = button.closest(".card");
+  if (!card) return "todo";
+
+  const className = Object.keys(CARD_STATUS_BY_CLASS).find((name) => card.classList.contains(name));
+  return className ? CARD_STATUS_BY_CLASS[className] : "todo";
+};
+
 export const TodoController = {
   init() {
-    const addBtn = document.querySelector(".task-actions__btn--add");
+    const addBtns = document.querySelectorAll(".card__add-btn");
 
-    if (addBtn) {
+    addBtns.forEach((addBtn) => {
       addBtn.addEventListener("click", () => {
         const text = prompt("タスクを追加");
-        if (text && text.trim() !== "") {
-          this.addTodo(text.trim());
-        }
+        if (text === null) return;
+
+        const status = getStatusFromButton(addBtn);
+        this.addTodo(text.trim(), status);
       });
-    }
+    });
 
     this.loadTodos();
   },
@@ -20,7 +37,7 @@ export const TodoController = {
   loadTodos() {
     const todos = TodoModel.todos.map((todo) => ({
       ...todo,
-      status: todo.status || "todo"
+      status: ALLOWED_STATUS.includes(todo.status) ? todo.status : "todo"
     }));
 
     TodoView.render(todos, {
@@ -30,13 +47,14 @@ export const TodoController = {
     });
   },
 
-  addTodo(text) {
+  addTodo(text, status = "todo") {
     const todos = TodoModel.todos;
+    const nextStatus = ALLOWED_STATUS.includes(status) ? status : "todo";
 
     todos.push({
       id: Date.now(),
       text,
-      status: "todo"
+      status: nextStatus
     });
 
     TodoModel.todos = todos;
@@ -63,7 +81,7 @@ export const TodoController = {
   },
 
   moveTodo(id, status) {
-    if (!["todo", "doing", "done"].includes(status)) return;
+    if (!ALLOWED_STATUS.includes(status)) return;
 
     const normalizedId = String(id);
     const todos = TodoModel.todos;

@@ -9,6 +9,7 @@ const STATUS_TO_SELECTOR = {
   doing: ".card--doing .card__list",
   done: ".card--done .card__list"
 };
+const EMPTY_TASK_LABEL = "（未記入タスク）";
 
 let itemTemplate = null;
 let dropBound = false;
@@ -20,7 +21,7 @@ const getListByStatus = (status) => {
 const getItemTemplate = () => {
   if (itemTemplate) return itemTemplate;
 
-  const base = document.querySelector(".card--todo .card__list .card__item");
+  const base = document.querySelector(".card__list .card__item");
   if (base) {
     itemTemplate = base.cloneNode(true);
     return itemTemplate;
@@ -36,17 +37,35 @@ const createListItem = (todo, handlers) => {
   li.className = `card__item ${STATUS_TO_CLASS[todo.status] || STATUS_TO_CLASS.todo}`;
   li.draggable = true;
   li.dataset.id = String(todo.id);
-  li.style.display = "flex";
-  li.style.alignItems = "center";
+
+  let label = li.querySelector(".card__label");
+  if (!label) {
+    label = document.createElement("label");
+    label.className = "card__label";
+    li.appendChild(label);
+  }
+
+  let checkbox = li.querySelector(".card__checkbox");
+  if (!checkbox) {
+    checkbox = document.createElement("input");
+    checkbox.className = "card__checkbox";
+    checkbox.type = "checkbox";
+    label.prepend(checkbox);
+  }
+
+  checkbox.checked = todo.status === "done";
+  checkbox.addEventListener("change", () => {
+    handlers.onMove(todo.id, checkbox.checked ? "done" : "todo");
+  });
 
   let textNode = li.querySelector(".card__text");
   if (!textNode) {
     textNode = document.createElement("span");
     textNode.className = "card__text";
-    li.appendChild(textNode);
+    label.appendChild(textNode);
   }
 
-  textNode.textContent = todo.text;
+  textNode.textContent = todo.text && todo.text.trim() !== "" ? todo.text : EMPTY_TASK_LABEL;
   textNode.style.cursor = "pointer";
   textNode.addEventListener("click", () => {
     const newText = prompt("タスクを更新", todo.text);
@@ -55,20 +74,16 @@ const createListItem = (todo, handlers) => {
     }
   });
 
-  let delBtn = li.querySelector(".card__del-btn");
-  if (!delBtn) {
-    delBtn = document.createElement("button");
-    delBtn.type = "button";
-    delBtn.className = "card__del-btn";
-    delBtn.textContent = "削除";
-    li.appendChild(delBtn);
+  let menuBtn = li.querySelector(".card__menu-btn");
+  if (!menuBtn) {
+    menuBtn = document.createElement("button");
+    menuBtn.type = "button";
+    menuBtn.className = "card__menu-btn";
+    menuBtn.textContent = "削除";
+    li.appendChild(menuBtn);
   }
 
-  delBtn.style.marginLeft = "auto";
-  delBtn.style.display = "inline-flex";
-  delBtn.style.alignItems = "center";
-  delBtn.style.justifyContent = "center";
-  delBtn.addEventListener("click", () => {
+  menuBtn.addEventListener("click", () => {
     handlers.onDelete(todo.id);
   });
 
@@ -107,13 +122,8 @@ const bindDropZones = (handlers) => {
     const list = getListByStatus(status);
     if (!list) return;
 
-    const content = list.closest(".card__content");
     list.style.minHeight = "96px";
-
     attachDropHandlers(list, status, handlers);
-    if (content) {
-      attachDropHandlers(content, status, handlers);
-    }
   });
 
   dropBound = true;
@@ -126,7 +136,6 @@ export const TodoView = {
     const doneList = getListByStatus("done");
     if (!todoList || !doingList || !doneList) return;
 
-    // Capture initial index.html item markup (including delete button SVG).
     getItemTemplate();
     bindDropZones(handlers);
 
