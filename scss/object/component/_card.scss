@@ -4,7 +4,7 @@
 .card {
   border-radius: v.$border-radius-lg;
   width: v.$card-width;
-  box-shadow: v.$card-shadow;
+  box-shadow: v.$shadow-lg;
   padding: 0 v.$card-padding;
   display: flex;
   flex-direction: column;
@@ -78,7 +78,7 @@
     position: relative;
     user-select: none;
     overflow-wrap: anywhere;
-    box-shadow: v.$card-item-box-shadow;
+    box-shadow: v.$shadow-sm;
 
     &:hover {
       background-color: v.$card-item-bg-hover;

@@ -12,11 +12,13 @@ $primary-blue: #2670f9;
 $color-text-on-light: $black;
 $color-text-on-dark: $white;
 
-$add-btn-color: rgba(51, 51, 51, 0.9);
+// Add button specific color (ベースカラーから派生)
+$add-btn-color: rgba($black, 0.9);
 
 // 背景色
 /* メイン */
-$body-bg: rgba(187, 215, 209, 0.5);
+$body-bg: rgba(#bbd7d1, 0.5);
+
 
 /* ヘッダーエリア */
 $header-bg: #0f172a;
@@ -26,8 +28,8 @@ $setting-btn-active-bg: mix($black, $header-bg, 10%);
 /* 背景グラデーション（Body） */
 $bg-gradient-start: #eadfdf;
 $bg-gradient-end: #ece2df;
-$bg-overlay-light: rgba(255, 255, 255, 0.5);
-$bg-overlay-dark: rgba(0, 0, 0, 0.5);
+$bg-overlay-light: rgba($white, 0.5);
+$bg-overlay-dark: rgba($black, 0.5);
 
 /* カード（個別） */
 $card-todo-bg: #5e8fb7;
@@ -36,13 +38,13 @@ $card-done-bg: #605d5d;
 
 /* カード（共通） */
 $card-item-bg: $white;
-//▼ 現在未定 ▼
-$card-item-bg-hover: $card-item-bg;
+// ホバー時の背景色を関数で生成
+$card-item-bg-hover: fn.hover-background-color($card-item-bg);
 
 /* カード「追加」ボタン（透過背景） */
-$card-add-btn-bg: rgba(225, 225, 225, 0.9);
+$card-add-btn-bg: rgba($white, 0.9);
 $card-add-btn-bg-hover: fn.hover-background-color($card-add-btn-bg, 20%);
-$card-add-btn-border-color: rgba(0, 0, 0, 0.15);
+$card-add-btn-border-color: rgba($black, 0.15);
 
 $card-checkbox-accent-color: $primary-blue;
 
@@ -58,18 +60,12 @@ $selected-outline-color: $primary-blue;
 // ============================================================
 /* 共通 */
 $shadow-lg:
-  0 4px 20px -3px rgba(0, 0, 0, 0.04),
-  0 2px 10px -2px rgba(0, 0, 0, 0.02);
-$shadow-sm: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  0 4px 20px -3px rgba($black, 0.04),
+  0 2px 10px -2px rgba($black, 0.02);
+$shadow-sm: 2px 2px 4px rgba($black, 0.3);
 
 /* 個別 */
-$card-shadow: $shadow-lg;
-$card-item-box-shadow: $shadow-sm;
-$card-add-btn-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
-
-// ============================================================
-// Options（全体設定）
-// ============================================================
+$card-add-btn-shadow: 0 4px 6px rgba($black, 0.25);
 
 // ============================================================
 // Spacing（余白）
@@ -104,24 +100,22 @@ $card-checkbox-margin-right: $spacing-sm;
 $card-checkbox-margin-top: $spacing-xs;
 
 // ============================================================
-// Body（基本スタイル）
+// Units & Dimensions（単位と寸法）
 // ============================================================
 /* サイズ */
 $setting-btn-size: 4rem;
 $setting-btn-icon-size: 60%;
+$checkbox-size: 1rem;
 
 /* 高さ */
 $body-height: 100dvh;
 
 /* 幅 */
-$main-header-width: 100%;
 $card-width: 25dvw;
-$card-add-btn: 100%;
 
 /* 位置 */
 $menu-btn-top: $card-item-padding;
 $menu-btn-right: $card-item-padding;
-$main-header-btn-margin-right: $main-header-heading-padding-y;
 $main-header-btn-padding: 0.5rem;
 
 // ============================================================
@@ -140,10 +134,6 @@ $font-weight-bold: 800;
 $font-optical-sizing: auto;
 $font-style-normal: normal;
 $letter-spacing-base: 0.1rem;
-
-// ============================================================
-// Grid & Breakpoints（レイアウトとレスポンシブ）
-// ============================================================
 
 // ============================================================
 // Z-index（重なり順）
@@ -177,4 +167,3 @@ $border-oval: 50px;
 // ============================================================
 // Components（共通パーツの部品）
 // ============================================================
-$checkbox-size: 1rem;
