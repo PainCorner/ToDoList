@@ -29,8 +29,8 @@
 
   &__title {
     border-radius: v.$border-radius-xs;
+    border-left :solid 5px v.$black;
     cursor: default;
-    text-align: center;
     padding: v.$card-title-padding;
     margin: v.$spacing-lg 0 v.$spacing-md;
     font-weight: v.$font-weight-semibold;

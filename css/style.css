@@ -102,7 +102,7 @@ body {
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #333;
   min-height: 100dvh;
   display: flex;
@@ -290,16 +290,16 @@ body {
   background: linear-gradient(#5fbc5f, rgb(86.2, 160.6, 86.2));
 }
 .card--done {
-  background-color: #605d5d;
-  background: linear-gradient(#605d5d, rgb(87, 84.6, 84.6));
+  background-color: #2c2e31;
+  background: linear-gradient(#2c2e31, rgb(45.4, 47, 49.4));
 }
 .card__header {
   flex-shrink: 0;
 }
 .card__title {
   border-radius: 0.1rem;
+  border-left: solid 5px #333;
   cursor: default;
-  text-align: center;
   padding: 1rem;
   margin: 1.5rem 0 1rem;
   font-weight: 600;

@@ -29,7 +29,7 @@ $bg-overlay-dark: rgba($black, 0.5);
 /* カード（個別） */
 $card-todo-bg: #5e8fb7;
 $card-doing-bg: #5fbc5f;
-$card-done-bg: #605d5d;
+$card-done-bg: #2c2e31;
 
 /* カード（共通） */
 $card-item-bg: $white;
@@ -129,7 +129,7 @@ $font-family-sans-serif:
   "LINE Seed JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo,
   sans-serif;
 $font-family-base: $font-family-sans-serif;
-$font-size-base: 1.2rem;
+$font-size-base: 1rem;
 $close-btn-font-size: 1.75rem;
 
 $font-weight-base: 400;
