@@ -22,7 +22,7 @@
       background: linear-gradient($color, mix(v.$black, $color, 20%));
 
       .card__title {
-        border-left: solid 5px mix(v.$black, $color, 60%);
+        border-left: solid 5px mix(v.$black,$color,60%);
       }
     }
   }
