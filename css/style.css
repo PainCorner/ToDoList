@@ -399,4 +399,12 @@ body {
 }
 .card__menu-btn:active {
   background-color: rgb(210.2, 210.2, 210.2);
+}
+.card__menu {
+  position: absolute;
+  right: 0.5rem;
+  background-color: #fafafa;
+  width: fit-content;
+  height: fit-content;
+  border: solid 1px #333;
 }/*# sourceMappingURL=style.css.map */

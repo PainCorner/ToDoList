@@ -99,7 +99,7 @@
 
   &__label {
     padding: v.$spacing-sm;
-		position: relative;
+    position: relative;
     display: grid;
     grid-template-columns: 1fr 10fr;
     grid-template-rows: auto auto;
@@ -148,5 +148,14 @@
     &:active {
       background-color: v.$menu-btn-active-bg;
     }
+  }
+
+  &__menu {
+    position: absolute;
+    right: v.$spacing-sm;
+    background-color: v.$white;
+    width: fit-content;
+    height: fit-content;
+    border: solid 1px v.$black;
   }
 }
