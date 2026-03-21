@@ -356,16 +356,28 @@ body {
 }
 .card__label {
   padding: 0.5rem;
-  display: flex;
-  align-items: flex-start;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 10fr;
+  grid-template-rows: auto auto;
 }
 .card__checkbox[type=checkbox] {
+  display: block;
   margin-right: 0.5rem;
-  margin-top: 0.2rem;
-  vertical-align: middle;
   block-size: 1rem;
   inline-size: 1rem;
   accent-color: #2670f9;
+  grid-column: 1/2;
+  grid-row: 1/3;
+}
+.card__text {
+  grid-column: 2/3;
+  grid-row: 1/2;
+}
+.card__due-date {
+  grid-column: 2/3;
+  grid-row: 2/3;
+  display: flex;
 }
 .card__menu-btn {
   color: #333;
