@@ -20,6 +20,10 @@
     &--#{$name} {
       background-color: $color;
       background: linear-gradient($color, mix(v.$black, $color, 20%));
+
+      .card__title {
+        border-left: solid 5px mix(v.$black, $color, 60%);
+      }
     }
   }
 
@@ -30,7 +34,6 @@
   &__title {
     border-radius: v.$border-radius-xs;
     cursor: default;
-    text-align: center;
     padding: v.$card-title-padding;
     margin: v.$spacing-lg 0 v.$spacing-md;
     font-weight: v.$font-weight-semibold;
@@ -71,7 +74,6 @@
   &__item {
     border-radius: v.$border-radius-sm;
     margin-inline: auto;
-    padding: v.$card-item-padding;
     margin: v.$card-item-margin-y 0;
     list-style: none;
     background-color: v.$card-item-bg;
@@ -96,17 +98,32 @@
   }
 
   &__label {
-    display: flex;
-    align-items: flex-start;
+    padding: v.$spacing-sm;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 10fr;
+    grid-template-rows: auto auto;
   }
 
   &__checkbox[type="checkbox"] {
+    display: block;
     margin-right: v.$card-checkbox-margin-right;
-    margin-top: v.$card-checkbox-margin-top;
-    vertical-align: middle;
     block-size: v.$checkbox-size;
     inline-size: v.$checkbox-size;
     accent-color: v.$card-checkbox-accent-color;
+    grid-column: 1/2;
+    grid-row: 1/3;
+  }
+
+  &__text {
+    grid-column: 2/3;
+    grid-row: 1/2;
+  }
+
+  &__due-date {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    display: flex;
   }
 
   &__menu-btn {
@@ -131,5 +148,14 @@
     &:active {
       background-color: v.$menu-btn-active-bg;
     }
+  }
+
+  &__menu {
+    position: absolute;
+    right: v.$spacing-sm;
+    background-color: v.$white;
+    width: fit-content;
+    height: fit-content;
+    border: solid 1px v.$black;
   }
 }

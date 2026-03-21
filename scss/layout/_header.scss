@@ -19,7 +19,6 @@
     letter-spacing: v.$letter-spacing-base;
   }
 
-  /* flattened link element instead of nested heading-link */
   &__link {
     text-decoration: none;
     color: inherit;

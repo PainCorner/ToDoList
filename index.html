@@ -2,183 +2,187 @@
 <html lang="ja">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>タスクボード</title>
-  <!-- LINE Seed JP（Google Fonts） -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=LINE+Seed+JP&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-  <script type="module" src="javascript/app.js" defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>タスクボード</title>
+	<!-- LINE Seed JP（Google Fonts） -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=LINE+Seed+JP&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+	<script type="module" src="javascript/app.js" defer></script>
 </head>
 
 <body>
-  <header class="main-header">
-    <h1 class="main-header__heading"><a class="main-header__link" href="#">タスクボード</a></h1>
-    <button class="main-header__setting-btn" type="button">
-      <!-- 
+	<header class="main-header">
+		<h1 class="main-header__heading"><a class="main-header__link" href="#">タスクボード</a></h1>
+		<button class="main-header__setting-btn" type="button">
+			<!-- 
         Icons: Bootstrap Icons (https://icons.getbootstrap.jp/icons/gear/)
         License: MIT
       -->
-      <svg class="main-header__setting-btn-icon" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-        class="bi bi-gear" viewBox="0 0 16 16">
-        <path
-          d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0" />
-        <path
-          d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z" />
-      </svg>
-    </button>
-  </header>
-  <main class="main-body">
-    <section class="card card--todo">
-      <header class="card__header">
-        <h2 class="card__title">開始前</h2>
-      </header>
-      <button class="card__add-btn" type="button">
-        <!-- 
+			<svg class="main-header__setting-btn-icon" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+				class="bi bi-gear" viewBox="0 0 16 16">
+				<path
+					d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0" />
+				<path
+					d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z" />
+			</svg>
+		</button>
+	</header>
+	<main class="main-body">
+		<section class="card card--todo">
+			<header class="card__header">
+				<h2 class="card__title">開始前</h2>
+			</header>
+			<button class="card__add-btn" type="button">
+				<!-- 
             Icons: Bootstrap Icons (https://icons.getbootstrap.jp/icons/plus-lg/)
             License: MIT
           -->
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg"
-          viewBox="0 0 16 16">
-          <path fill-rule="evenodd"
-            d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2" />
-        </svg>
-        タスク追加</button>
-      <ul class="card__list">
-        <!-- 選択されたとき、テキスト編集をするなら、下記のクラスや属性を設定 -->
-        <!-- <li class="card__item card__item--todo card__item--selected" contenteditable="true"> -->
-        <li class="card__item">
-          <label class="card__label">
-            <input class="card__checkbox" type="checkbox">
-            <span class="card__text">開始前</span>
-          </label>
-          <button class="card__menu-btn" type="button">
-            <!-- 
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg"
+					viewBox="0 0 16 16">
+					<path fill-rule="evenodd"
+						d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2" />
+				</svg>
+				タスク追加</button>
+			<ul class="card__list">
+				<!-- 選択されたとき、テキスト編集をするなら、下記のクラスや属性を設定 -->
+				<!-- <li class="card__item card__item--todo card__item--selected" contenteditable="true"> -->
+				<li class="card__item">
+					<label class="card__label">
+						<input class="card__checkbox" type="checkbox">
+						<span class="card__text">開始前</span>
+					</label>
+					<button class="card__menu-btn" type="button">
+						<!-- 
                   Icons: Bootstrap Icons (https://icons.getbootstrap.jp/icons/three-dots/)
                   License: MIT
                 -->
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots"
-              viewBox="0 0 16 16">
-              <path
-                d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
-            </svg>
-          </button>
-        </li>
-      </ul>
-    </section>
-    <section class="card card--doing">
-      <header class="card__header">
-        <h2 class="card__title">進行中</h2>
-      </header>
-      <button class="card__add-btn" type="button">
-        <!-- 
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots"
+							viewBox="0 0 16 16">
+							<path
+								d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
+						</svg>
+					</button>
+				</li>
+			</ul>
+		</section>
+		<section class="card card--doing">
+			<header class="card__header">
+				<h2 class="card__title">進行中</h2>
+			</header>
+			<button class="card__add-btn" type="button">
+				<!-- 
             Icons: Bootstrap Icons (https://icons.getbootstrap.jp/icons/plus-lg/)
             License: MIT
           -->
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg"
-          viewBox="0 0 16 16">
-          <path fill-rule="evenodd"
-            d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2" />
-        </svg>
-        タスク追加</button>
-      <ul class="card__list">
-        <li class="card__item">
-          <label class="card__label">
-            <input class="card__checkbox" type="checkbox">
-            <span class="card__text">進行中</span>
-          </label>
-          <button class="card__menu-btn" type="button">
-            <!-- 
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg"
+					viewBox="0 0 16 16">
+					<path fill-rule="evenodd"
+						d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2" />
+				</svg>
+				タスク追加</button>
+			<ul class="card__list">
+				<li class="card__item">
+					<label class="card__label">
+						<input class="card__checkbox" type="checkbox">
+						<span class="card__text">進行中</span>
+					</label>
+					<button class="card__menu-btn" type="button">
+						<!-- 
                   Icons: Bootstrap Icons (https://icons.getbootstrap.jp/icons/three-dots/)
                   License: MIT
                 -->
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots"
-              viewBox="0 0 16 16">
-              <path
-                d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
-            </svg>
-          </button>
-        </li>
-      </ul>
-    </section>
-    <section class="card card--done">
-      <header class="card__header">
-        <h2 class="card__title">完了</h2>
-      </header>
-      <button class="card__add-btn" type="button">
-        <!-- 
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots"
+							viewBox="0 0 16 16">
+							<path
+								d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
+						</svg>
+					</button>
+				</li>
+			</ul>
+		</section>
+		<section class="card card--done">
+			<header class="card__header">
+				<h2 class="card__title">完了</h2>
+			</header>
+			<button class="card__add-btn" type="button">
+				<!-- 
             Icons: Bootstrap Icons (https://icons.getbootstrap.jp/icons/plus-lg/)
             License: MIT
           -->
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg"
-          viewBox="0 0 16 16">
-          <path fill-rule="evenodd"
-            d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2" />
-        </svg>
-        タスク追加
-      </button>
-      <ul class="card__list">
-        <li class="card__item">
-          <label class="card__label">
-            <input class="card__checkbox" type="checkbox">
-            <span class="card__text">完了</span>
-          </label>
-          <button class="card__menu-btn" type="button">
-            <!-- 
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg"
+					viewBox="0 0 16 16">
+					<path fill-rule="evenodd"
+						d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2" />
+				</svg>
+				タスク追加
+			</button>
+			<ul class="card__list">
+				<li class="card__item">
+					<label class="card__label">
+						<input class="card__checkbox" type="checkbox">
+						<span class="card__text">完了</span>
+						<span class="card__due-date">📅5月5日</span>
+					</label>
+					<button class="card__menu-btn" type="button">
+						<!-- 
                   Icons: Bootstrap Icons (https://icons.getbootstrap.jp/icons/three-dots/)
                   License: MIT
                 -->
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots"
-              viewBox="0 0 16 16">
-              <path
-                d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
-            </svg>
-          </button>
-        </li>
-        <li class="card__item">
-          <label class="card__label">
-            <input class="card__checkbox" type="checkbox">
-            <span class="card__text">完了</span>
-          </label>
-          <button class="card__menu-btn" type="button">
-            <!-- 
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots"
+							viewBox="0 0 16 16">
+							<path
+								d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
+						</svg>
+					</button>
+					<ul class="card__menu">
+						<li class="card__menu-item">削除🗑️</li>
+					</ul>
+				</li>
+				<li class="card__item">
+					<label class="card__label">
+						<input class="card__checkbox" type="checkbox">
+						<span class="card__text">完了</span>
+					</label>
+					<button class="card__menu-btn" type="button">
+						<!-- 
                   Icons: Bootstrap Icons (https://icons.getbootstrap.jp/icons/three-dots/)
                   License: MIT
                 -->
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots"
-              viewBox="0 0 16 16">
-              <path
-                d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
-            </svg>
-          </button>
-        </li>
-      </ul>
-    </section>
-  </main>
-  <dialog class="drawer drawer--settings">
-    <header class="drawer__header">
-      <h2 class="drawer__title">設定</h2>
-    </header>
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots"
+							viewBox="0 0 16 16">
+							<path
+								d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
+						</svg>
+					</button>
+				</li>
+			</ul>
+		</section>
+	</main>
+	<dialog class="drawer drawer--settings">
+		<header class="drawer__header">
+			<h2 class="drawer__title">設定</h2>
+		</header>
 
-    <nav class="drawer__nav">
-      <ul class="drawer__list">
-        <li class="drawer__item">
-          <button class="drawer__btn drawer__btn--general" type="button">一般</button>
-        </li>
-        <li class="drawer__item">
-          <button class="drawer__btn drawer__btn--general" type="button">一般</button>
-        </li>
-        <li class="drawer__item">
-          <button class="drawer__btn drawer__btn--general" type="button">一般</button>
-        </li>
-      </ul>
-    </nav>
-    <footer class="drawer__footer">
-      <button class="drawer__close-btn" type="button">×</button>
-    </footer>
-  </dialog>
+		<nav class="drawer__nav">
+			<ul class="drawer__list">
+				<li class="drawer__item">
+					<button class="drawer__btn drawer__btn--general" type="button">一般</button>
+				</li>
+				<li class="drawer__item">
+					<button class="drawer__btn drawer__btn--general" type="button">一般</button>
+				</li>
+				<li class="drawer__item">
+					<button class="drawer__btn drawer__btn--general" type="button">一般</button>
+				</li>
+			</ul>
+		</nav>
+		<footer class="drawer__footer">
+			<button class="drawer__close-btn" type="button">×</button>
+		</footer>
+	</dialog>
 </body>
 
 </html>
