@@ -37,7 +37,9 @@ html {
   font-family: system-ui, "Segoe UI", Roboto, sans-serif;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
-  tab-size: 4;
+  -moz-tab-size: 4;
+    -o-tab-size: 4;
+       tab-size: 4;
   height: 100%;
 }
 
@@ -134,6 +136,7 @@ body {
   color: inherit;
 }
 .main-header__setting-btn {
+  height: -moz-fit-content;
   height: fit-content;
   margin-right: 4rem;
   background-color: #0f172a;
@@ -339,7 +342,9 @@ body {
   list-style: none;
   background-color: #fafafa;
   position: relative;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   overflow-wrap: anywhere;
   box-shadow: 2px 2px 4px rgba(51, 51, 51, 0.3);
 }
@@ -347,7 +352,7 @@ body {
   background-color: rgb(230.1, 230.1, 230.1);
   outline: solid 0.2rem rgb(130.6, 130.6, 130.6);
 }
-.card__item:hover .card__menu-btn {
+.card__item:hover .card__del-btn {
   visibility: visible;
   opacity: 1;
 }
@@ -379,24 +384,27 @@ body {
   grid-row: 2/3;
   display: flex;
 }
-.card__menu-btn {
+.card__del-btn {
   color: #333;
   position: absolute;
   visibility: hidden;
   opacity: 0;
   border: none;
   background-color: inherit;
-  top: 0.5rem;
+  top: 0.3rem;
   right: 0.5rem;
   display: flex;
   place-items: center;
   padding: 0.2rem;
   border-radius: 0.25rem;
 }
-.card__menu-btn:hover {
+.card__del-btn:hover {
   background-color: rgb(230.1, 230.1, 230.1);
   outline: solid 0.2rem rgb(210.2, 210.2, 210.2);
 }
-.card__menu-btn:active {
+.card__del-btn:active {
   background-color: rgb(210.2, 210.2, 210.2);
+}
+.card__del-btn-icon {
+  color: #b66D6d;
 }/*# sourceMappingURL=style.css.map */

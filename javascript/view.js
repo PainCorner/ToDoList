@@ -175,11 +175,11 @@ const createListItem = (todo, handlers, options) => {
 		startInlineEdit(li, textNode, todo, handlers);
 	}
 
-	let menuBtn = li.querySelector('.card__menu-btn');
+	let menuBtn = li.querySelector('.card__del-btn');
 	if (!menuBtn) {
 		menuBtn = document.createElement('button');
 		menuBtn.type = 'button';
-		menuBtn.className = 'card__menu-btn';
+		menuBtn.className = 'card__del-btn';
 		menuBtn.textContent = '蜑企勁';
 		li.appendChild(menuBtn);
 	}

@@ -86,7 +86,7 @@
       background-color: v.$card-item-bg-hover;
       outline: solid v.$outline-size v.$hover-outline-color;
 
-      .card__menu-btn {
+      .card__del-btn {
         visibility: visible;
         opacity: 1;
       }
@@ -99,7 +99,7 @@
 
   &__label {
     padding: v.$spacing-sm;
-		position: relative;
+    position: relative;
     display: grid;
     grid-template-columns: 1fr 10fr;
     grid-template-rows: auto auto;
@@ -126,27 +126,32 @@
     display: flex;
   }
 
-  &__menu-btn {
+  &__del-btn {
     color: v.$black;
     position: absolute;
     visibility: hidden;
     opacity: 0;
     border: none;
     background-color: inherit;
-    top: v.$spacing-sm;
+    // 真ん中に寄せるため
+    top: calc(v.$spacing-sm - v.$outline-size);
     right: v.$spacing-sm;
     display: flex;
     place-items: center;
-    padding: v.$menu-btn-padding;
+    padding: v.$del-btn-padding;
     border-radius: v.$border-radius;
 
     &:hover {
-      background-color: v.$menu-btn-hover-bg;
-      outline: solid v.$outline-size v.$menu-btn-active-bg;
+      background-color: v.$del-btn-hover-bg;
+      outline: solid v.$outline-size v.$del-btn-active-bg;
     }
 
     &:active {
-      background-color: v.$menu-btn-active-bg;
+      background-color: v.$del-btn-active-bg;
+    }
+
+    &-icon {
+      color: v.$accent-red;
     }
   }
 }

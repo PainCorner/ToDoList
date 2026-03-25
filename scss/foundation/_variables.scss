@@ -7,6 +7,7 @@
 $black: #333;
 $white: #fafafa;
 $primary-blue: #2670f9;
+$accent-red:#b66D6d;
 
 // Add button specific color (ベースカラーから派生)
 $add-btn-color: rgba($black, 0.9);
@@ -43,8 +44,8 @@ $card-add-btn-border-color: rgba($black, 0.15);
 
 $card-checkbox-accent-color: $primary-blue;
 
-$menu-btn-hover-bg: mix($black, $card-item-bg, 10%);
-$menu-btn-active-bg: mix($black, $card-item-bg, 20%);
+$del-btn-hover-bg: mix($black, $card-item-bg, 10%);
+$del-btn-active-bg: mix($black, $card-item-bg, 20%);
 
 /* ドロワーメニュー */
 $drawer-bg: $header-bg;
@@ -89,7 +90,7 @@ $card-padding: $spacing-md;
 $card-title-padding: $spacing-md;
 $card-add-btn-padding: $spacing-sm;
 $card-item-padding: $spacing-sm;
-$menu-btn-padding: $spacing-xs;
+$del-btn-padding: $spacing-xs;
 
 /* margin */
 $main-header-margin-bottom: $spacing-xl;
@@ -117,8 +118,8 @@ $drawer-width: 22.5rem;
 $close-btn-width: 3rem;
 
 /* 位置 */
-$menu-btn-top: $card-item-padding;
-$menu-btn-right: $card-item-padding;
+$del-btn-top: $card-item-padding;
+$del-btn-right: $card-item-padding;
 $main-header-btn-padding: 0.5rem;
 
 // ============================================================
