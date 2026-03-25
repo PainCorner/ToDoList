@@ -1,7 +1,7 @@
-﻿'use strict';
+'use strict';
 
 import { TodoView } from './view.js';
-import { TodoController } from "./controller.js";
+import { TodoController } from './controller.js';
 
 document.addEventListener('DOMContentLoaded', () => {
 	TodoView.init();
