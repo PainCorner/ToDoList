@@ -147,18 +147,12 @@ body {
   align-items: center;
   height: 4rem;
   aspect-ratio: 1;
-  transform: rotate(0);
-  transition: transform 0.3s ease-in-out;
 }
 .main-header__setting-btn:hover {
   background-color: rgb(62, 68.4, 83.6);
-  transform: rotate(90deg);
 }
 .main-header__setting-btn:active {
   background-color: rgb(18.6, 25.8, 42.9);
-}
-.main-header {
-  /* icon element flattened to avoid double __ */
 }
 .main-header__setting-btn-icon {
   height: 60%;
