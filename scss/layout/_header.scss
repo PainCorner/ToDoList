@@ -24,29 +24,29 @@
     color: inherit;
   }
 
-  &__setting-btn {
+  &__sort-btn {
     height: fit-content;
-    margin-right: v.$main-header-setting-btn-margin-right;
+    margin-right: v.$main-header-sort-btn-margin-right;
     background-color: v.$header-bg;
     color: v.$white;
     border-radius: v.$border-circle;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: v.$setting-btn-size;
+    height: v.$sort-btn-size;
     aspect-ratio: 1;
 
     &:hover {
-      background-color: v.$setting-btn-hover-bg;
+      background-color: v.$sort-btn-hover-bg;
     }
 
     &:active {
-      background-color: v.$setting-btn-active-bg;
+      background-color: v.$sort-btn-active-bg;
     }
   }
 
-  &__setting-btn-icon {
-    height: v.$setting-btn-icon-size;
+  &__sort-btn-icon {
+    height: v.$sort-btn-icon-size;
     aspect-ratio: 1;
   }
 }

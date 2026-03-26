@@ -18,8 +18,8 @@ $body-bg: rgba(#bbd7d1, 0.5);
 
 /* ヘッダーエリア */
 $header-bg: #0f172a;
-$setting-btn-hover-bg: fn.hover-background-color($header-bg);
-$setting-btn-active-bg: mix($black, $header-bg, 10%);
+$sort-btn-hover-bg: fn.hover-background-color($header-bg);
+$sort-btn-active-bg: mix($black, $header-bg, 10%);
 
 /* 背景グラデーション（Body） */
 $bg-gradient-start: #eadfdf;
@@ -94,7 +94,7 @@ $del-btn-padding: $spacing-xs;
 
 /* margin */
 $main-header-margin-bottom: $spacing-xl;
-$main-header-setting-btn-margin-right: $spacing-xxl;
+$main-header-sort-btn-margin-right: $spacing-xxl;
 $task-actions-margin-bottom: $spacing-lg;
 $btn-add-margin-left: $spacing-lg;
 $card-item-margin-y: $spacing-md;
@@ -104,8 +104,8 @@ $card-checkbox-margin-right: $spacing-sm;
 // Units & Dimensions（単位と寸法）
 // ============================================================
 /* サイズ */
-$setting-btn-size: 4rem;
-$setting-btn-icon-size: 60%;
+$sort-btn-size: 4rem;
+$sort-btn-icon-size: 60%;
 $checkbox-size: 1rem;
 
 /* 高さ */

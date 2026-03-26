@@ -234,7 +234,7 @@ const bindDropZones = (handlers) => {
 
 export const TodoView = {
 	selectors: {
-		settingsBtn: '.main-header__setting-btn',
+		settingsBtn: '.main-header__sort-btn',
 		drawerSettings: '.drawer--settings',
 		drawerCloseBtn: '.drawer__close-btn'
 	},

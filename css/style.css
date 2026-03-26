@@ -135,7 +135,7 @@ body {
   text-decoration: none;
   color: inherit;
 }
-.main-header__setting-btn {
+.main-header__sort-btn {
   height: -moz-fit-content;
   height: fit-content;
   margin-right: 4rem;
@@ -148,13 +148,13 @@ body {
   height: 4rem;
   aspect-ratio: 1;
 }
-.main-header__setting-btn:hover {
+.main-header__sort-btn:hover {
   background-color: rgb(62, 68.4, 83.6);
 }
-.main-header__setting-btn:active {
+.main-header__sort-btn:active {
   background-color: rgb(18.6, 25.8, 42.9);
 }
-.main-header__setting-btn-icon {
+.main-header__sort-btn-icon {
   height: 60%;
   aspect-ratio: 1;
 }
