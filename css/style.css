@@ -155,7 +155,7 @@ body {
   background-color: rgb(18.6, 25.8, 42.9);
 }
 .main-header__sort-btn-icon {
-  height: 60%;
+  height: 40%;
   aspect-ratio: 1;
 }
 
@@ -400,5 +400,5 @@ body {
   background-color: rgb(210.2, 210.2, 210.2);
 }
 .card__del-btn-icon {
-  color: #b66D6d;
+  color: #b66d6d;
 }/*# sourceMappingURL=style.css.map */
