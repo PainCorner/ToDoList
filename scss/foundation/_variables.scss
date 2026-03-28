@@ -21,6 +21,9 @@ $header-bg: #0f172a;
 $sort-btn-hover-bg: fn.hover-background-color($header-bg);
 $sort-btn-active-bg: mix($black, $header-bg, 10%);
 
+$sort-menu-bg: #ede8d5;
+$sort-menu-bg-hover:fn.hover-background-color($sort-menu-bg);
+
 /* 背景グラデーション（Body） */
 $bg-gradient-start: #eadfdf;
 $bg-gradient-end: #ece2df;
@@ -34,7 +37,7 @@ $card-done-bg: #2c2e31;
 
 /* カード（共通） */
 $card-item-bg: $white;
-$card-due-date-color:mix($black,$white,60%);
+$card-due-date-color: mix($black, $white, 60%);
 // ホバー時の背景色を関数で生成
 $card-item-bg-hover: fn.hover-background-color($card-item-bg);
 
@@ -42,8 +45,6 @@ $card-item-bg-hover: fn.hover-background-color($card-item-bg);
 $card-add-btn-bg: rgba($white, 0.9);
 $card-add-btn-bg-hover: fn.hover-background-color($card-add-btn-bg, 20%);
 $card-add-btn-border-color: rgba($black, 0.15);
-
-$card-checkbox-accent-color: $primary-blue;
 
 $del-btn-hover-bg: mix($black, $card-item-bg, 10%);
 $del-btn-active-bg: mix($black, $card-item-bg, 20%);
@@ -62,12 +63,14 @@ $selected-outline-color: $primary-blue;
 // Shadows（影）
 // ============================================================
 /* 共通 */
+// 値：x y ぼかし強度 影の広がり 
 $shadow-lg:
   0 4px 20px -3px rgba($black, 0.04),
   0 2px 10px -2px rgba($black, 0.02);
 $shadow-sm: 2px 2px 4px rgba($black, 0.3);
 
 /* 個別 */
+$header-sort-menu-shadow: 0px 2px 10px 5px rgba($black, 0.4);
 $card-add-btn-shadow: 0 4px 6px rgba($black, 0.25);
 $drawer-shadow: -10px 0 30px rgba($black, 0.1);
 // ============================================================
@@ -111,6 +114,7 @@ $checkbox-size: 1rem;
 
 /* 高さ */
 $body-height: 100dvh;
+$header-height: 100px;
 
 /* 幅 */
 $card-width: 25dvw;
@@ -172,6 +176,7 @@ $border-oval: 50px;
 $transition-duration-base: 0.5s;
 $transition-timing-base: ease-out;
 $transition-base: $transition-duration-base $transition-timing-base;
+
 
 // ============================================================
 // Components（共通パーツの部品）

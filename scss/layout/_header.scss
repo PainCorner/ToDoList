@@ -1,5 +1,5 @@
 @use "../foundation/variables" as v;
-@use "../foundation/function";
+@use "../foundation/function" as fn;
 
 .main-header {
   flex-shrink: 0;
@@ -9,12 +9,11 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  position: sticky;
-  top: 0;
-  z-index: v.$z-index-header;
+  height: v.$header-height;
+  position: relative;
 
   &__heading {
-    padding: v.$main-header-heading-padding-y v.$main-header-heading-padding-x;
+    padding: 0 v.$main-header-heading-padding-x;
     font-weight: v.$font-weight-semibold;
     letter-spacing: v.$letter-spacing-base;
   }
@@ -25,16 +24,13 @@
   }
 
   &__sort-btn {
-    height: fit-content;
     margin-right: v.$main-header-sort-btn-margin-right;
     background-color: v.$header-bg;
     color: v.$white;
     border-radius: v.$border-circle;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: v.$sort-btn-size;
+    width: v.$sort-btn-size;
     aspect-ratio: 1;
+    position: static;
 
     &:hover {
       background-color: v.$sort-btn-hover-bg;
@@ -45,8 +41,65 @@
     }
   }
 
+  // sort-btnをホバーしたときにメニューを見えるようにする
+  // sort-menuをホバーしている間も見れるようにしている
+  &__sort-btn:hover + &__sort-menu,
+  &__sort-menu:hover {
+    visibility: visible;
+    opacity: 1;
+  }
+
   &__sort-btn-icon {
     height: v.$sort-btn-icon-size;
     aspect-ratio: 1;
+  }
+
+  &__sort-menu {
+    transition:
+      visibility ease-out 0.3s,
+      background-color ease-out 0.3s,
+      opacity ease-out 0.3s;
+    position: absolute;
+    top: 100%;
+    background-color: v.$sort-menu-bg;
+    border-radius: v.$border-radius-lg;
+    // ▼-- ボタンの位置に合わせて中央揃えする --▼
+    right: calc(
+      #{v.$main-header-sort-btn-margin-right} + #{v.$sort-btn-size} / 2
+    );
+    transform: translateX(50%);
+    // ▲-- ボタンの位置に合わせて中央揃えする --▲
+    box-shadow: v.$header-sort-menu-shadow;
+    visibility: hidden;
+    opacity: 0;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 1rem;
+      aspect-ratio: 1;
+      top: -1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      clip-path: polygon(0 100%, 100% 100%, 50% 0);
+      background-color: inherit;
+    }
+  }
+  &__sort-item {
+    color: v.$black;
+    border-radius: inherit;
+
+    &:hover {
+      background-color: v.$sort-menu-bg-hover;
+    }
+
+    &-label {
+      display: block;
+      padding: v.$spacing-md;
+    }
+
+    &-checkbox[type="checkbox"] {
+      accent-color: v.$primary-blue;
+    }
   }
 }
