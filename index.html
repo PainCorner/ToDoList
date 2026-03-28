@@ -10,7 +10,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=LINE+Seed+JP&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <!-- <script type="module" src="javascript/app.js" defer></script> -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <!-- DateTimePickerを使用するための外部ライブラリ読み込み -->
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ja.js"></script>
+  <script type="module" src="javascript/app.js" defer></script>
+  <!-- <script src="test.js" defer></script> -->
   <!--
     このサイトではBootstrap Iconsを使用しています
     Copyright (c) The Bootstrap Authors
@@ -33,7 +38,7 @@
     <ul class="main-header__sort-menu">
       <li class="main-header__sort-item">
         <label class="main-header__sort-item-label">
-          <input id="date-item" class="main-header__sort-item-checkbox" type="checkbox">
+          <input class="main-header__sort-item-checkbox" type="checkbox">
           <span class="main-header__sort-item-text">日付順</span>
         </label>
       </li>
@@ -55,10 +60,8 @@
         <!-- 選択されたとき、テキスト編集をするなら、下記のクラスや属性を設定 -->
         <!-- <li class="card__item card__item--todo card__item--selected" contenteditable="true"> -->
         <li class="card__item">
-          <label class="card__label">
-            <input class="card__checkbox" type="checkbox">
-            <span class="card__text">開始前</span>
-          </label>
+          <label class="card__label"><span class="card__text">買い物</span></label>
+          <input class="card__checkbox" type="checkbox">
           <button class="card__del-btn" type="button">
             <svg class="card__del-btn-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
               fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
@@ -66,7 +69,6 @@
                 d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5" />
             </svg>
           </button>
-        </li>
       </ul>
     </section>
     <section class="card card--doing">
@@ -82,10 +84,8 @@
         タスク追加</button>
       <ul class="card__list">
         <li class="card__item">
-          <label class="card__label">
-            <input class="card__checkbox" type="checkbox">
-            <span class="card__text">進行中</span>
-          </label>
+          <label class="card__label"><span class="card__text">進行中のタスク</span></label>
+          <input class="card__checkbox" type="checkbox">
           <button class="card__del-btn" type="button">
             <svg class="card__del-btn-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
               fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
@@ -110,24 +110,31 @@
       </button>
       <ul class="card__list">
         <li class="card__item">
-          <label class="card__label">
-            <input class="card__checkbox" type="checkbox">
-            <span class="card__text">買い物</span>
-            <span class="card__due-date">期限日：2026年05月05日</span>
-          </label>
-          <button class="card__del-btn" type="button">
-            <svg class="card__del-btn-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-              fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
-              <path
-                d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5" />
-            </svg>
-          </button>
+          <label class="card__label"><span class="card__text">買い物</span></label>
+          <input class="card__checkbox" type="checkbox">
+          <div class="card__due-date-wrapper">
+            <span class="card__due-date">期限日：<time class="card__due-date-value"
+                datetime="2026-05-05">2026年05月05日</time></span>
+            <button class="card__due-date-btn">
+              <svg class="card__due-date-btn-icon" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                class="bi bi-calendar2" viewBox="0 0 16 16">
+                <path
+                  d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1z" />
+                <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5z" />
+              </svg>
+            </button>
+            <button class="card__del-btn" type="button">
+              <svg class="card__del-btn-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                <path
+                  d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5" />
+              </svg>
+            </button>
+          </div>
         </li>
         <li class="card__item">
-          <label class="card__label">
-            <input class="card__checkbox" type="checkbox">
-            <span class="card__text">完了</span>
-          </label>
+          <label class="card__label"><span class="card__text">進行中のタスク</span></label>
+          <input class="card__checkbox" type="checkbox">
           <button class="card__del-btn" type="button">
             <svg class="card__del-btn-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
               fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
@@ -139,6 +146,28 @@
       </ul>
     </section>
   </main>
+
+
+
+  <!-- <script type="text/javascript" defer>
+    const timeElem = document.querySelector('.card__due-date-btn');
+
+    timeElem.addEventListener('click',()=>{
+      alert('test');
+    });
+
+    flatpickr('.card__due-date-btn', {
+      locale: 'ja',
+      dateFormat: 'Y-m-d',
+      onChange: (selectedDates, dateStr) => {
+        const [year, month, day] = dateStr.split('-');
+        const formattedDate = `${year}年${month}月${day}日`;
+
+        timeElem.textContent = formattedDate;
+        timeElem.setAttribute('datetime', dateStr);
+      }
+    });
+  </script> -->
 </body>
 
 </html>

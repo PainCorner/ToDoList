@@ -232,11 +232,38 @@ const bindDropZones = (handlers) => {
   dropBound = true;
 };
 
+// 期限日周りの設定
+const DueDateManger = {
+  CARD_DUE_DATE_BTN: '.card__due-date-btn',
+  dueDate: document.querySelector('.card__due-date-value'),
+
+  initDueDate(callback) {
+    // DateTimePickerの設定（外部ライブラリ）
+    flatpickr(this.CARD_DUE_DATE_BTN, {
+      locale: 'ja',
+      dateFormat: 'Y-m-d',
+      onChange: (selectedDates, dateStr) => {
+        const [year, month, day] = dateStr.split('-');
+
+        this.dueDate.textContent = `${year}年${month}月${day}日`;
+        // date-time属性に日付を設定
+        this.dueDate.setAttribute('datetime', dateStr);
+
+        // 呼び出された際データを返すためもの
+        if (callback) callback(dateStr);
+      }
+    });
+  }
+}
+
+// 使用例
+// DueDateManager.initDueDate((date) => {
+//   console.log('受け取った日付:', date);
+// });
+
 export const TodoView = {
   selectors: {
-    sortBtn: '.main-header__sort-btn',
-    // drawerSettings: '.drawer--settings',
-    // drawerCloseBtn: '.drawer__close-btn'
+    sortBtn: '.main-header__sort-btn'
   },
 
   el: {},
@@ -246,7 +273,10 @@ export const TodoView = {
       this.el[key] = document.querySelector(this.selectors[key]);
     });
 
+    DueDateManger.initDueDate();
   },
+
+
   render(todos, handlers, options = {}) {
     const todoList = getListByStatus('todo');
     const doingList = getListByStatus('doing');
