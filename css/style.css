@@ -376,7 +376,9 @@ body {
 .card__due-date {
   grid-column: 2/3;
   grid-row: 2/3;
-  display: flex;
+  color: rgb(130.6, 130.6, 130.6);
+  /* gapで指定すると、期限日を設定していないものまでgapが適用されてしまうので、marginで調整 */
+  margin-top: 0.5rem;
 }
 .card__del-btn {
   color: #333;
