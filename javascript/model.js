@@ -1,6 +1,6 @@
 'use strict';
 
-const STORAGE_KEY = "todos";
+const STORAGE_KEY = 'todos';
 
 export const TodoModel = {
 	get todos() {

@@ -67,7 +67,8 @@ button,
 label,
 [type=button],
 [type=reset],
-[type=submit] {
+[type=submit],
+[type=checkbox] {
   cursor: pointer;
 }
 
@@ -102,10 +103,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-size: 1rem;
   color: #333;
-  min-height: 100dvh;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(rgba(187, 215, 209, 0.5), rgba(245.1538461538, 247.3076923077, 246.8461538462, 0.9));
+  background: rgba(187, 215, 209, 0.5);
 }
 
 /* 
@@ -120,12 +120,11 @@ body {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  height: 100px;
+  position: relative;
 }
 .main-header__heading {
-  padding: 2rem 4rem;
+  padding: 0 4rem;
   font-weight: 600;
   letter-spacing: 0.1rem;
 }
@@ -133,33 +132,65 @@ body {
   text-decoration: none;
   color: inherit;
 }
-.main-header__setting-btn {
-  height: fit-content;
+.main-header__sort-btn {
   margin-right: 4rem;
   background-color: #0f172a;
   color: #fafafa;
   border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 4rem;
+  width: 4rem;
   aspect-ratio: 1;
-  transform: rotate(0);
-  transition: transform 0.3s ease-in-out;
+  position: static;
 }
-.main-header__setting-btn:hover {
+.main-header__sort-btn:hover {
   background-color: rgb(62, 68.4, 83.6);
-  transform: rotate(90deg);
 }
-.main-header__setting-btn:active {
+.main-header__sort-btn:active {
   background-color: rgb(18.6, 25.8, 42.9);
 }
-.main-header {
-  /* icon element flattened to avoid double __ */
+.main-header__sort-btn:hover + .main-header__sort-menu, .main-header__sort-menu:hover {
+  visibility: visible;
+  opacity: 1;
 }
-.main-header__setting-btn-icon {
-  height: 60%;
+.main-header__sort-btn-icon {
+  height: 40%;
   aspect-ratio: 1;
+}
+.main-header__sort-menu {
+  transition: visibility ease-out 0.3s, background-color ease-out 0.3s, opacity ease-out 0.3s;
+  position: absolute;
+  top: 100%;
+  background-color: #ede8d5;
+  border-radius: 0.5rem;
+  right: calc(4rem + 4rem / 2);
+  transform: translateX(50%);
+  box-shadow: 0px 2px 10px 5px rgba(51, 51, 51, 0.4);
+  visibility: hidden;
+  opacity: 0;
+}
+.main-header__sort-menu::after {
+  content: "";
+  position: absolute;
+  width: 1rem;
+  aspect-ratio: 1;
+  top: -1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  clip-path: polygon(0 100%, 100% 100%, 50% 0);
+  background-color: inherit;
+}
+.main-header__sort-item {
+  color: #333;
+  border-radius: inherit;
+}
+.main-header__sort-item:hover {
+  background-color: rgb(218.4, 213.9, 196.8);
+}
+.main-header__sort-item-label {
+  display: block;
+  padding: 1rem;
+}
+.main-header__sort-item-checkbox[type=checkbox] {
+  accent-color: #2670f9;
 }
 
 /* 
@@ -168,99 +199,11 @@ body {
 */
 .main-body {
   flex: 1;
-  min-height: 0;
+  min-height: calc(100dvh - 100px);
   display: flex;
   padding: 1.5rem;
   justify-content: space-evenly;
   align-items: stretch;
-}
-
-/* 
-下記参考サイト
-リンク：https://github.com/hiloki/flocss?tab*readme-ov-file#ファイルディレクトリ構成
-*/
-.drawer {
-  background-color: #0f172a;
-  box-shadow: -10px 0 30px rgba(51, 51, 51, 0.1);
-  color: #fafafa;
-  display: flex;
-  flex-direction: column;
-  visibility: hidden;
-  opacity: 0;
-  position: fixed;
-  inset: 0 0 0 auto;
-  width: 22.5rem;
-  min-height: 100dvh;
-  z-index: 1000;
-  border: none;
-  outline: none;
-  transform: translateX(22.5rem);
-  transition: opacity 0.5s ease-out, visibility 0.5s ease-out, transform 0.5s ease-out;
-}
-.drawer[open] {
-  visibility: visible;
-  opacity: 1;
-  transform: translateX(0);
-}
-.drawer::backdrop {
-  background-color: rgba(51, 51, 51, 0.8);
-}
-.drawer__header {
-  flex-shrink: 0;
-}
-.drawer__title {
-  background-color: rgb(109, 113.8, 125.2);
-  text-align: center;
-  padding: 2rem 0;
-  letter-spacing: 0.1rem;
-  flex-shrink: 0;
-}
-.drawer__list {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 1.5rem;
-  height: 50dvh;
-}
-.drawer__item {
-  position: relative;
-}
-.drawer__btn {
-  color: #fafafa;
-  padding: 1.5rem;
-  width: 100%;
-  border-left: 4px solid transparent;
-  transition: all 0.2s ease;
-  text-align: center;
-  cursor: pointer;
-}
-.drawer__btn:hover {
-  background-color: rgb(62, 68.4, 83.6);
-  border-left-color: #2670f9;
-}
-.drawer__footer {
-  margin-top: auto;
-  padding: 2rem;
-  text-align: center;
-  border-top: 1px solid rgba(250, 250, 250, 0.1);
-}
-.drawer__close-btn {
-  color: #fafafa;
-  font-size: 1.75rem;
-  cursor: pointer;
-  transition: transform 0.2s ease, color 0.2s ease, background-color 0.2s ease;
-  width: 3rem;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background-color: rgba(250, 250, 250, 0.3);
-}
-.drawer__close-btn:hover {
-  color: #0f172a;
-  background-color: #2670f9;
-  transform: scale(1.1);
-}
-.drawer__close-btn:active {
-  transform: scale(0.95);
 }
 
 /* 
@@ -328,26 +271,28 @@ body {
   box-shadow: 0 4px 6px rgba(51, 51, 51, 0.25);
 }
 .card__list {
-  flex: 0;
-  padding: 0;
-  margin: 0;
+  min-height: min-content;
+  margin: 1rem 0;
 }
 .card__item {
   border-radius: 0.125rem;
   margin-inline: auto;
-  margin: 1rem 0;
   list-style: none;
   background-color: #fafafa;
   position: relative;
   user-select: none;
   overflow-wrap: anywhere;
   box-shadow: 2px 2px 4px rgba(51, 51, 51, 0.3);
+  display: grid;
+  grid-template-columns: min-content auto;
+  grid-template-rows: auto auto;
+  margin-bottom: 1rem;
 }
 .card__item:hover {
   background-color: rgb(230.1, 230.1, 230.1);
   outline: solid 0.2rem rgb(130.6, 130.6, 130.6);
 }
-.card__item:hover .card__menu-btn {
+.card__item:hover .card__del-btn {
   visibility: visible;
   opacity: 1;
 }
@@ -355,50 +300,64 @@ body {
   outline: solid 0.2rem #2670f9;
 }
 .card__label {
-  padding: 0.5rem;
+  padding: 0.5rem 0;
   position: relative;
-  display: grid;
-  grid-template-columns: 1fr 10fr;
-  grid-template-rows: auto auto;
-}
-.card__checkbox[type=checkbox] {
-  display: block;
-  margin-right: 0.5rem;
-  block-size: 1rem;
-  inline-size: 1rem;
-  accent-color: #2670f9;
-  grid-column: 1/2;
-  grid-row: 1/3;
-}
-.card__text {
   grid-column: 2/3;
   grid-row: 1/2;
 }
-.card__due-date {
+.card__checkbox[type=checkbox] {
+  display: block;
+  block-size: 1rem;
+  inline-size: 1rem;
+  accent-color: #2670f9;
+  grid-column: 0/3;
+  grid-row: 1/2;
+  place-self: center;
+  margin: 0 0.5rem;
+}
+.card__due-date-wrapper {
   grid-column: 2/3;
   grid-row: 2/3;
+  color: rgb(130.6, 130.6, 130.6);
   display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding-bottom: 0.5rem;
 }
-.card__menu-btn {
+.card__due-date-btn {
+  height: 1rem;
+  aspect-ratio: 1;
+}
+.card__del-btn {
   color: #333;
   position: absolute;
   visibility: hidden;
   opacity: 0;
   border: none;
   background-color: inherit;
-  top: 0.5rem;
+  top: 0.3rem;
   right: 0.5rem;
   display: flex;
   place-items: center;
   padding: 0.2rem;
   border-radius: 0.25rem;
 }
-.card__menu-btn:hover {
+.card__del-btn:hover {
   background-color: rgb(230.1, 230.1, 230.1);
   outline: solid 0.2rem rgb(210.2, 210.2, 210.2);
 }
-.card__menu-btn:active {
+.card__del-btn:active {
   background-color: rgb(210.2, 210.2, 210.2);
+}
+.card__del-btn-icon {
+  height: fit-content;
+  aspect-ratio: 1;
+  color: #b66d6d;
+}
+.card__del-btn-icon {
+  height: fit-content;
+  aspect-ratio: 1;
+  color: #b66d6d;
 }
 .card__menu {
   position: absolute;
