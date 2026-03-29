@@ -69,7 +69,8 @@ button,
 label,
 [type=button],
 [type=reset],
-[type=submit] {
+[type=submit],
+[type=checkbox] {
   cursor: pointer;
 }
 
