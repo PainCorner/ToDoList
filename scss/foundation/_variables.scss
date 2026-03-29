@@ -7,6 +7,7 @@
 $black: #333;
 $white: #fafafa;
 $primary-blue: #2670f9;
+$accent-red: #b66d6d;
 
 // Add button specific color (ベースカラーから派生)
 $add-btn-color: rgba($black, 0.9);
@@ -17,8 +18,11 @@ $body-bg: rgba(#bbd7d1, 0.5);
 
 /* ヘッダーエリア */
 $header-bg: #0f172a;
-$setting-btn-hover-bg: fn.hover-background-color($header-bg);
-$setting-btn-active-bg: mix($black, $header-bg, 10%);
+$sort-btn-hover-bg: fn.hover-background-color($header-bg);
+$sort-btn-active-bg: mix($black, $header-bg, 10%);
+
+$sort-menu-bg: #ede8d5;
+$sort-menu-bg-hover:fn.hover-background-color($sort-menu-bg);
 
 /* 背景グラデーション（Body） */
 $bg-gradient-start: #eadfdf;
@@ -33,6 +37,7 @@ $card-done-bg: #2c2e31;
 
 /* カード（共通） */
 $card-item-bg: $white;
+$card-due-date-color: mix($black, $white, 60%);
 // ホバー時の背景色を関数で生成
 $card-item-bg-hover: fn.hover-background-color($card-item-bg);
 
@@ -41,10 +46,8 @@ $card-add-btn-bg: rgba($white, 0.9);
 $card-add-btn-bg-hover: fn.hover-background-color($card-add-btn-bg, 20%);
 $card-add-btn-border-color: rgba($black, 0.15);
 
-$card-checkbox-accent-color: $primary-blue;
-
-$menu-btn-hover-bg: mix($black, $card-item-bg, 10%);
-$menu-btn-active-bg: mix($black, $card-item-bg, 20%);
+$del-btn-hover-bg: mix($black, $card-item-bg, 10%);
+$del-btn-active-bg: mix($black, $card-item-bg, 20%);
 
 /* ドロワーメニュー */
 $drawer-bg: $header-bg;
@@ -60,12 +63,14 @@ $selected-outline-color: $primary-blue;
 // Shadows（影）
 // ============================================================
 /* 共通 */
+// 値：x y ぼかし強度 影の広がり 
 $shadow-lg:
   0 4px 20px -3px rgba($black, 0.04),
   0 2px 10px -2px rgba($black, 0.02);
 $shadow-sm: 2px 2px 4px rgba($black, 0.3);
 
 /* 個別 */
+$header-sort-menu-shadow: 0px 2px 10px 5px rgba($black, 0.4);
 $card-add-btn-shadow: 0 4px 6px rgba($black, 0.25);
 $drawer-shadow: -10px 0 30px rgba($black, 0.1);
 // ============================================================
@@ -89,11 +94,11 @@ $card-padding: $spacing-md;
 $card-title-padding: $spacing-md;
 $card-add-btn-padding: $spacing-sm;
 $card-item-padding: $spacing-sm;
-$menu-btn-padding: $spacing-xs;
+$del-btn-padding: $spacing-xs;
 
 /* margin */
 $main-header-margin-bottom: $spacing-xl;
-$main-header-setting-btn-margin-right: $spacing-xxl;
+$main-header-sort-btn-margin-right: $spacing-xxl;
 $task-actions-margin-bottom: $spacing-lg;
 $btn-add-margin-left: $spacing-lg;
 $card-item-margin-y: $spacing-md;
@@ -103,12 +108,13 @@ $card-checkbox-margin-right: $spacing-sm;
 // Units & Dimensions（単位と寸法）
 // ============================================================
 /* サイズ */
-$setting-btn-size: 4rem;
-$setting-btn-icon-size: 60%;
+$sort-btn-size: 4rem;
+$sort-btn-icon-size: 40%;
 $checkbox-size: 1rem;
 
 /* 高さ */
 $body-height: 100dvh;
+$header-height: 100px;
 
 /* 幅 */
 $card-width: 25dvw;
@@ -117,8 +123,8 @@ $drawer-width: 22.5rem;
 $close-btn-width: 3rem;
 
 /* 位置 */
-$menu-btn-top: $card-item-padding;
-$menu-btn-right: $card-item-padding;
+$del-btn-top: $card-item-padding;
+$del-btn-right: $card-item-padding;
 $main-header-btn-padding: 0.5rem;
 
 // ============================================================
@@ -170,6 +176,7 @@ $border-oval: 50px;
 $transition-duration-base: 0.5s;
 $transition-timing-base: ease-out;
 $transition-base: $transition-duration-base $transition-timing-base;
+
 
 // ============================================================
 // Components（共通パーツの部品）
