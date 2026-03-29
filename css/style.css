@@ -382,4 +382,124 @@ body {
 }
 .card__menu-btn:active {
   background-color: rgb(210.2, 210.2, 210.2);
+}
+
+.card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.card__due {
+  display: block;
+  font-size: 0.85rem;
+  color: #475569;
+}
+
+.todo-sort {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0 1.5rem 1rem;
+}
+
+.todo-sort__label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+.todo-sort__select {
+  min-width: 12rem;
+  padding: 0.65rem 0.9rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #0f172a;
+}
+
+.todo-dialog {
+  width: min(32rem, calc(100vw - 2rem));
+  border: none;
+  border-radius: 1rem;
+  padding: 0;
+  background: #ffffff;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.25);
+}
+
+.todo-dialog::backdrop {
+  background: rgba(15, 23, 42, 0.45);
+}
+
+.todo-dialog__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.todo-dialog__header {
+  padding: 1.5rem 1.5rem 0;
+}
+
+.todo-dialog__title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.todo-dialog__body {
+  display: grid;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+}
+
+.todo-dialog__field {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.todo-dialog__label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+.todo-dialog__title-input,
+.todo-dialog__date-input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.75rem;
+  background: #f8fafc;
+}
+
+.todo-dialog__title-input:focus,
+.todo-dialog__date-input:focus {
+  border-color: #2670f9;
+  box-shadow: 0 0 0 3px rgba(38, 112, 249, 0.15);
+}
+
+.todo-dialog__footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  padding: 0 1.5rem 1.5rem;
+}
+
+.todo-dialog__cancel-btn,
+.todo-dialog__submit-btn {
+  border-radius: 999px;
+  padding: 0.75rem 1.25rem;
+  font-weight: 600;
+}
+
+.todo-dialog__cancel-btn {
+  background: #e2e8f0;
+  color: #334155;
+}
+
+.todo-dialog__submit-btn {
+  background: #2670f9;
+  color: #ffffff;
 }/*# sourceMappingURL=style.css.map */

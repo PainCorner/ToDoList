@@ -157,6 +157,37 @@
       </ul>
     </section>
   </main>
+  <section class="todo-sort" aria-label="並び替え">
+    <label class="todo-sort__label" for="todo-sort-select">並び替え</label>
+    <select class="todo-sort__select" id="todo-sort-select" name="todoSort">
+      <option value="created-desc">新しい順</option>
+      <option value="created-asc">古い順</option>
+      <option value="due-asc">期限が近い順</option>
+      <option value="due-desc">期限が遠い順</option>
+    </select>
+  </section>
+  <dialog class="todo-dialog">
+    <form class="todo-dialog__form" method="dialog">
+      <input class="todo-dialog__status-input" type="hidden" name="status" value="todo">
+      <header class="todo-dialog__header">
+        <h2 class="todo-dialog__title">タスク追加</h2>
+      </header>
+      <div class="todo-dialog__body">
+        <label class="todo-dialog__field">
+          <span class="todo-dialog__label">タスク名</span>
+          <input class="todo-dialog__title-input" type="text" name="title" placeholder="タスク名を入力" required>
+        </label>
+        <label class="todo-dialog__field">
+          <span class="todo-dialog__label">期限</span>
+          <input class="todo-dialog__date-input" type="date" name="dueDate">
+        </label>
+      </div>
+      <footer class="todo-dialog__footer">
+        <button class="todo-dialog__cancel-btn" type="button">キャンセル</button>
+        <button class="todo-dialog__submit-btn" type="submit">追加</button>
+      </footer>
+    </form>
+  </dialog>
   <dialog class="drawer drawer--settings">
     <header class="drawer__header">
       <h2 class="drawer__title">設定</h2>

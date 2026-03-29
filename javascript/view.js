@@ -18,7 +18,8 @@ const STATUS_TO_CARD_SELECTOR = {
 	done: '.card--done'
 };
 
-const EMPTY_TASK_LABEL = '・域悴險伜・繧ｿ繧ｹ繧ｯ・・;';
+const EMPTY_TASK_LABEL = 'Enter task name';
+const CLICK_DELAY_MS = 200;
 
 let itemTemplate = null;
 let dropBound = false;
@@ -55,6 +56,15 @@ const focusTextNode = (textNode) => {
 		selection.removeAllRanges();
 		selection.addRange(range);
 	});
+};
+
+const formatDueDate = (dueDate) => {
+	if (!dueDate) return '';
+
+	const [year, month, day] = dueDate.split('-');
+	if (!year || !month || !day) return '';
+
+	return `Due: ${year}/${month}/${day}`;
 };
 
 const startInlineEdit = (li, textNode, todo, handlers) => {
@@ -153,22 +163,76 @@ const createListItem = (todo, handlers, options) => {
 		handlers.onToggleChecked(todo.id, checkbox.checked);
 	});
 
-	let textNode = li.querySelector('.card__text');
+	let content = li.querySelector('.card__content');
+	if (!content) {
+		content = document.createElement('span');
+		content.className = 'card__content';
+		label.appendChild(content);
+	}
+
+	let textNode = content.querySelector('.card__text') || li.querySelector('.card__text');
 	if (!textNode) {
 		textNode = document.createElement('span');
 		textNode.className = 'card__text';
-		label.appendChild(textNode);
+	}
+	content.appendChild(textNode);
+
+	let dueNode = content.querySelector('.card__due');
+	if (!dueNode) {
+		dueNode = document.createElement('span');
+		dueNode.className = 'card__due';
+		content.appendChild(dueNode);
 	}
 
 	textNode.textContent = todo.text && todo.text.trim() !== '' ? todo.text : EMPTY_TASK_LABEL;
 	textNode.style.cursor = 'pointer';
+	dueNode.textContent = formatDueDate(todo.dueDate);
+	dueNode.hidden = !todo.dueDate;
+
+	let clickTimerId = null;
+
 	const beginEdit = () => {
 		startInlineEdit(li, textNode, todo, handlers);
 	};
-	textNode.addEventListener('dblclick', beginEdit);
+
+	const scheduleToggleChecked = (event) => {
+		event.preventDefault();
+		event.stopPropagation();
+
+		if (clickTimerId) {
+			clearTimeout(clickTimerId);
+		}
+
+		clickTimerId = window.setTimeout(() => {
+			clickTimerId = null;
+			checkbox.checked = !checkbox.checked;
+			handlers.onToggleChecked(todo.id, checkbox.checked);
+		}, CLICK_DELAY_MS);
+	};
+
+	const handleDoubleClick = (event) => {
+		event.preventDefault();
+		event.stopPropagation();
+
+		if (clickTimerId) {
+			clearTimeout(clickTimerId);
+			clickTimerId = null;
+		}
+
+		beginEdit();
+	};
+
+	textNode.addEventListener('click', scheduleToggleChecked);
+	textNode.addEventListener('dblclick', handleDoubleClick);
+
+	label.addEventListener('click', (event) => {
+		if (event.target === checkbox) return;
+		scheduleToggleChecked(event);
+	});
+
 	label.addEventListener('dblclick', (event) => {
 		if (event.target === checkbox) return;
-		beginEdit();
+		handleDoubleClick(event);
 	});
 
 	if (String(options.editingTodoId) === String(todo.id)) {
@@ -180,7 +244,7 @@ const createListItem = (todo, handlers, options) => {
 		menuBtn = document.createElement('button');
 		menuBtn.type = 'button';
 		menuBtn.className = 'card__menu-btn';
-		menuBtn.textContent = '蜑企勁';
+		menuBtn.textContent = 'Delete';
 		li.appendChild(menuBtn);
 	}
 
@@ -236,7 +300,14 @@ export const TodoView = {
 	selectors: {
 		settingsBtn: '.main-header__setting-btn',
 		drawerSettings: '.drawer--settings',
-		drawerCloseBtn: '.drawer__close-btn'
+		drawerCloseBtn: '.drawer__close-btn',
+		sortSelect: '.todo-sort__select',
+		addDialog: '.todo-dialog',
+		addForm: '.todo-dialog__form',
+		addTitleInput: '.todo-dialog__title-input',
+		addDateInput: '.todo-dialog__date-input',
+		addStatusInput: '.todo-dialog__status-input',
+		addCancelBtn: '.todo-dialog__cancel-btn'
 	},
 
 	el: {},
@@ -247,6 +318,7 @@ export const TodoView = {
 		});
 
 		this.toggleSettingsDrawerMenu();
+		this.bindAddDialogClose();
 	},
 
 	toggleSettingsDrawerMenu() {
@@ -265,6 +337,60 @@ export const TodoView = {
 				this.el.drawerSettings.close();
 			}
 		});
+	},
+
+	bindAddDialogClose() {
+		this.el.addCancelBtn?.addEventListener('click', () => this.el.addDialog?.close());
+
+		this.el.addDialog?.addEventListener('click', (event) => {
+			if (event.target === this.el.addDialog) {
+				this.el.addDialog.close();
+			}
+		});
+	},
+
+	openAddTodoDialog(status = 'todo') {
+		if (!this.el.addDialog || !this.el.addForm) return;
+
+		this.el.addForm.reset();
+		if (this.el.addStatusInput) {
+			this.el.addStatusInput.value = status;
+		}
+
+		this.el.addDialog.showModal();
+		queueMicrotask(() => {
+			this.el.addTitleInput?.focus();
+		});
+	},
+
+	bindAddTodoForm(onSubmit) {
+		this.el.addForm?.addEventListener('submit', (event) => {
+			event.preventDefault();
+
+			const text = this.el.addTitleInput?.value?.trim() || '';
+			const dueDate = this.el.addDateInput?.value || '';
+			const status = this.el.addStatusInput?.value || 'todo';
+
+			if (text === '') {
+				this.el.addTitleInput?.focus();
+				return;
+			}
+
+			onSubmit({ text, dueDate, status });
+			this.el.addDialog?.close();
+		});
+	},
+
+	bindSortSelect(onChange) {
+		this.el.sortSelect?.addEventListener('change', (event) => {
+			onChange(event.target.value);
+		});
+	},
+
+	setSortValue(value) {
+		if (this.el.sortSelect) {
+			this.el.sortSelect.value = value;
+		}
 	},
 
 	render(todos, handlers, options = {}) {
